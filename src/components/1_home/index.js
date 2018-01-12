@@ -7,13 +7,13 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: '',
-      inputClass: '',
+      errorMsg: '',
+      errorClassName: 'no-error',
 
     }
   }
 
-  verifyEmail(e){
+  verifyEmail = e => {
     e.preventDefault();
     const email = document.getElementById('userEmail').value;
 
@@ -22,9 +22,14 @@ export default class Home extends Component {
       return re.test(email);
     }
 
-    if (validateEmail(email)) {
-      this.setState.error = 'Please enter a valid email address.';
-      this.setState.inputClass = 'black';
+    console.log(validateEmail(email))
+
+    if (!validateEmail(email)) {
+      this.setState({ errorMsg: 'Please enter a valid email address.', errorClassName: 'email-error' });
+
+      // errorMsg = ;
+      // this.setState.errorClassName = ;
+      return;
     }
 
     request.get('http://fe2706e6.ngrok.io/user')
@@ -38,19 +43,20 @@ export default class Home extends Component {
       });
   }
 
-	render(state, props) {
-    console.log(props)
+	render(props, state) {
+    console.log(state)
+
 		return (
       <section style="border:solid black;">
         <h1>Page #1</h1>
         <h2>{ props.text }</h2>
         <form>
-          <input id="userEmail" type="email" className={ this.inputClass } />
+          <input id="userEmail" type="email" className={ state.errorClassName } />
           <button
             type="btn submit"
             onClick={ this.verifyEmail }>Start a Repair</button>
         </form>
-        <p>{ this.error }</p>
+        <p>{ state.errorMsg }</p>
         <a href="/step_1" style="height:50px;width:50px;border:solid black;">FORWARD</a>
       </section>
 		);

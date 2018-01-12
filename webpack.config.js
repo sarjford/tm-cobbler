@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src',
+  entry: [ './src', './src/main.scss' ],
 
   output: {
     path: path.join(__dirname, 'build'),
@@ -20,6 +20,15 @@ module.exports = {
             ['transform-react-jsx', { pragma: 'h' }]
           ]
         }
+      },
+      // {
+      //   test: /\.css$/,
+      //   use: ['style-loader', 'css-loader']
+      // },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loader: 'style-loader!css-loader!sass-loader'
       }
     ],
   },
