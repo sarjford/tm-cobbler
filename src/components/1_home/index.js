@@ -1,37 +1,3 @@
-// import { h, Component } from 'preact';
-// // import { Router, route } from 'preact-router';
-//
-//
-// export default class Home extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//
-//   verifyEmail(e){
-//     e.preventDefault();
-//     var email = document.getElementById('userEmail').value;
-//
-//
-//
-//   }
-//
-// 	render(props) {
-//     console.log(props)
-// 		return (
-//       <section style="border:solid black;">
-//         <h1>Page #1</h1>
-//         <h2>{ props.text }</h2>
-//         <form>
-//           <input id="userEmail" type="text" />
-//           <button type="btn submit" onClick={ this.verifyEmail }>Start a Repair</button>
-//         </form>
-//         <a href="/step_1" style="height:50px;width:50px;border:solid black;">FORWARD</a>
-//       </section>
-// 		);
-// 	}
-// }
-
-
 import { h, Component } from 'preact';
 // import { Router, route } from 'preact-router';
 import request from 'superagent';
@@ -42,7 +8,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       error: '',
-      inputClass: ,
+      inputClass: '',
 
     }
   }
@@ -58,7 +24,7 @@ export default class Home extends Component {
 
     if (validateEmail(email)) {
       this.setState.error = 'Please enter a valid email address.';
-      this.setState.inputClass = ''
+      this.setState.inputClass = 'black';
     }
 
     request.get('http://fe2706e6.ngrok.io/user')
@@ -72,7 +38,7 @@ export default class Home extends Component {
       });
   }
 
-	render(props) {
+	render(state, props) {
     console.log(props)
 		return (
       <section style="border:solid black;">
@@ -84,7 +50,7 @@ export default class Home extends Component {
             type="btn submit"
             onClick={ this.verifyEmail }>Start a Repair</button>
         </form>
-        <p>{ this. }</p>
+        <p>{ this.error }</p>
         <a href="/step_1" style="height:50px;width:50px;border:solid black;">FORWARD</a>
       </section>
 		);
