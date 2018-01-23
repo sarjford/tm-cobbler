@@ -9,6 +9,38 @@ import Confirmation from './5_confirmation';
 import Overview from './4_overview';
 
 
+// {
+//    order: {
+//       attributes: {
+//          channel: "tm", // is this our code?
+//          store_name: "API", // ask brendan to add this to our co.
+//          creator: "", // customer name
+//          ref_number: "", // order #
+//          customer_first_name: "",
+//          customer_last_name: "",
+//          phone: "",
+//          email: ""
+//       },
+//       order_address_attributes: {
+//          line1: "",
+//          line2: "",
+//          city: "",
+//          state: "",
+//          zip: ""
+//       },
+//       line_items_attributes:{
+//          0: {
+//             category: "womens",
+//             associate_comments: "", // send variant ID
+//             repair_ids: [ "1", "4" ], // ask brendan
+//             style_id: "9", // ask brendan
+//             material_id: "4", // ask brendan
+//             size: ""
+//          }
+//       }
+//    }
+// }
+
 
 export default class App extends Component {
 
@@ -19,7 +51,12 @@ export default class App extends Component {
       currView: '/',
       prevView: '',
       step: 0,
-      data: []
+      data: [],
+      selectedShoe: {
+        variantId: '',
+        repairId: '',
+        size: ''
+      }
       //   [
       //     {
       //     customer: {id: 181085437973, customer_id: 166503874581, first_name: "Purvisha", last_name: "Patel", company: null },

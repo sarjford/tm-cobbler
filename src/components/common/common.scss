@@ -1,0 +1,17 @@
+.progress-bar {
+  width: 100%;
+  background: #e6e6e6;
+
+  .nav-button, h3 {
+    display: inline-block;
+    width: 33%;
+  }
+  h3 {
+    text-align: center;
+  }
+}
+
+.progress-bar > div {
+  width: 70%;
+  margin: 0 auto;
+}
