@@ -7,6 +7,8 @@ const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
 const promise = require('bluebird');
+const bodyParser = require ('body-parser');
+
 
 const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
@@ -18,6 +20,8 @@ const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
 const accessToken = process.env.ACCESS_TOKEN;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
@@ -148,7 +152,7 @@ app.get('/user', (req, res) => {
               name: line_item.title,
               price: line_item.price,
               options: line_item.variant_title,
-              order: line_item.order_number,
+              order: order.order_number,
               customer: order.customer.default_address,
               date: order.created_at
             }
@@ -201,4 +205,11 @@ app.get('/user', (req, res) => {
     .catch((error) => {
       console.log(error);
     });
+});
+
+app.post('/order', (req, res) => {
+  console.log(req)
+  console.log('req.body', req.body)
+  res.send('Hello World!');
+
 });

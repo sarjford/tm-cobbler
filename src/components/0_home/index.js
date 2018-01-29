@@ -12,11 +12,17 @@ export default class Home extends Component {
       errorClassName: 'no-error',
     }
     this.verifyEmail = this.verifyEmail.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
+
+  }
+
+  updateEmail(e){
+    this.props.setAppState({ email: e.target.value });
   }
 
   verifyEmail(e) {
     e.preventDefault();
-    const email = document.getElementById('userEmail').value;
+    const email = this.props.state.email;
 
     function validateEmail(email) {
       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,15 +52,12 @@ export default class Home extends Component {
   }
 
 	render(props, state) {
-    console.log('Home')
-
-
 		return (
       <section style="border:solid blue;">
         <h1>HOME</h1>
         <h2>{ props.text }</h2>
         <form>
-          <input id="userEmail" type="email" className={ state.errorClassName } />
+          <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onChange={this.updateEmail} />
           <button
             type="btn submit"
             onClick={ this.verifyEmail }>Start a Repair</button>

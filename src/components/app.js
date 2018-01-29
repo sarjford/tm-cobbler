@@ -23,6 +23,7 @@ export default class App extends Component {
       step: 0,
       selectedShoeIndex: 0,
       selectedRepairs: [],
+      email: '',
 
       // data: [],
 
