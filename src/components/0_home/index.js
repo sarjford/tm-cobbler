@@ -29,11 +29,10 @@ export default class Home extends Component {
     }
     this.setState({ errorMsg: '', errorClassName: '' });
 
-    request.get('https://f24e23c3.ngrok.io/user')
+    request.get('https://4cfb0fbc.ngrok.io/user')
       .query({ email: email })
       .then(function(res) {
-         let current = this.props.state.currView;
-         this.props.setAppState({ data: res.body, prevView: current, currView: "/step_1", step: 1 });
+         this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
          route('/step_1');
 
       }.bind(this))

@@ -9,7 +9,7 @@ export default class Progress extends Component {
     this.exitCobbler = this.exitCobbler.bind(this);
   }
 
-  navigateBack(){
+  navigateBack() {
     const newUrl = this.props.state.prevView;
     const newStep = this.props.state.step - 1;
     const newPrev = this.props.state.currView;
@@ -17,7 +17,7 @@ export default class Progress extends Component {
     route(newUrl);
   }
 
-  exitCobbler(){
+  exitCobbler() {
     const newPrev = this.props.state.currView;
     this.props.setAppState({ currView: '/', prevView: newPrev, step: 0 });
     route('/');

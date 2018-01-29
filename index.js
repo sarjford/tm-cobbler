@@ -12,9 +12,9 @@ const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
 const scopes = 'write_content, write_themes, write_products, read_customers, write_customers, unauthenticated_write_customers, read_orders';
 
-const forwardingAddress = "https://f24e23c3.ngrok.io"; // Replace later with HTTPS Forwarding address
+const forwardingAddress = "https://4cfb0fbc.ngrok.io"; // Replace later with HTTPS Forwarding address
 
-const url = 'https://f24e23c3.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
+const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
 const accessToken = process.env.ACCESS_TOKEN;
 

@@ -4,42 +4,12 @@ import { Router, route } from 'preact-router';
 import Home from './0_home';
 import Shoes from './1_shoes';
 import Repairs from './2_repairs';
-import userInfo from './3_userInfo';
+import Info from './3_userInfo';
 import Confirmation from './5_confirmation';
 import Overview from './4_overview';
 
 
-// {
-//    order: {
-//       attributes: {
-//          channel: "tm", // is this our code?
-//          store_name: "API", // ask brendan to add this to our co.
-//          creator: "", // customer name
-//          ref_number: "", // order #
-//          customer_first_name: "",
-//          customer_last_name: "",
-//          phone: "",
-//          email: ""
-//       },
-//       order_address_attributes: {
-//          line1: "",
-//          line2: "",
-//          city: "",
-//          state: "",
-//          zip: ""
-//       },
-//       line_items_attributes:{
-//          0: {
-//             category: "womens",
-//             associate_comments: "", // send variant ID
-//             repair_ids: [ "1", "4" ], // ask brendan
-//             style_id: "9", // ask brendan
-//             material_id: "4", // ask brendan
-//             size: ""
-//          }
-//       }
-//    }
-// }
+
 
 
 export default class App extends Component {
@@ -51,12 +21,13 @@ export default class App extends Component {
       currView: '/',
       prevView: '',
       step: 0,
+      selectedShoeIndex: 0,
+      selectedRepairs: [],
+
+      // data: [],
+
       data: [],
-      selectedShoe: {
-        variantId: '',
-        repairId: '',
-        size: ''
-      }
+
       //   [
       //     {
       //     customer: {id: 181085437973, customer_id: 166503874581, first_name: "Purvisha", last_name: "Patel", company: null },
@@ -101,7 +72,7 @@ export default class App extends Component {
         <Home path="/" state={ this.state } setAppState={ this.setAppState } />
         <Shoes path="/step_1" state={ this.state } setAppState={ this.setAppState } />
         <Repairs path="/step_2" state={ this.state } setAppState={ this.setAppState } />
-        <userInfo path="/step_3" state={ this.state } setAppState={ this.setAppState } />
+        <Info path="/step_3" state={ this.state } setAppState={ this.setAppState } />
         <Overview path="/step_4" state={ this.state } setAppState={ this.setAppState } />
         <Confirmation path="/complete" state={ this.state } setAppState={ this.setAppState } />
       </Router>
