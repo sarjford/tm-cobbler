@@ -123,7 +123,7 @@ app.get('/user', (req, res) => {
 
     .then((userData) => {
       const parsedUserData = JSON.parse(userData);
-      // console.log(typeof parsedUserData)
+      console.log(typeof parsedUserData)
       // console.log(parsedUserData.customers.length)
       if (parsedUserData.customers.length === 0) {
         return res.status(400).send('Invalid email address. No users associated with this email address');
@@ -209,19 +209,85 @@ app.get('/user', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-  let orderObj = req.body;
+  let orderObject = req.body;
   console.log('req.body', JSON.stringify(req.body))
 
+  // const orderObject = {
+  //     "order": {
+  //         "attributes": {
+  //             "channel": "tm",
+  //             "store_name": "API",
+  //             "creator": "Sarah Ford",
+  //             "ref_number": "1234",
+  //             "customer_first_name": "Sarah",
+  //             "customer_last_name": "Ford",
+  //             "phone": "2605555555",
+  //             "email": "sarahf@tamaramellon.com"
+  //         },
+  //         "order_address_attributes": {
+  //             "line1": "test",
+  //             "line2": "test",
+  //             "city": "test",
+  //             "state": "test",
+  //             "zip": "test"
+  //         },
+  //         "line_items_attributes": {
+  //             "0": {
+  //                 "category": "womens",
+  //                 "associate_comments": "test",
+  //                 "repair_ids": ["test", "test"],
+  //                 "style_id": "",
+  //                 "material_id": "",
+  //                 "size": "6"
+  //             }
+  //         }
+  //     }
+  // }
+
+  // const orderObject = {
+  //    order: {
+  //       attributes: {
+  //          channel: 'tm',
+  //          store_name: 'API',
+  //          creator: 'Sarah Ford',
+  //          ref_number: '1234',
+  //          customer_first_name: 'Sarah',
+  //          customer_last_name: 'Ford',
+  //          phone: '2605555555',
+  //          email: 'sarahf@tamaramellon.com'
+  //       },
+  //       order_address_attributes: {
+  //          line1: 'test',
+  //          line2: 'test',
+  //          city: 'test',
+  //          state: 'test',
+  //          zip: 'test'
+  //       },
+  //       line_items_attributes:{
+  //          0: {
+  //             category: 'womens',
+  //             associate_comments: 'test',
+  //             repair_ids: [ 'test', 'test' ],
+  //             style_id: '',
+  //             material_id: '',
+  //             size: '6'
+  //          }
+  //       }
+  //    }
+  // }
+
   ajax.post('https://orders.cobblerconcierge.com/api/partners/tm/orders')
-    .send(orderObj)
+    .send(orderObject)
     .set('Authorization', 'enzy9PvHnnuBJo2mHosLQQCq')
     .set('Accept', 'application/vnd.CcOps.v1, application/json')
+    .set('Content-Type', 'application/json')
     .then(function(res) {
-       // console.log(res)
+       console.log(res)
     })
     .catch((error) => {
-      console.log(error);
-    });
+      console.log(error)
 
+      res.send(error);
+    });
 
 });

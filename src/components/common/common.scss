@@ -43,11 +43,14 @@
 // 	font-style: normal;
 // }
 
-* {
+h1, h2, h3, input, button, p, span {
   font-family: 'Futura', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
-
+body {
+  margin: 0;
+  padding: 0;
+}
 
 
 .progress-bar {
@@ -66,4 +69,20 @@
 .progress-bar > div {
   width: 70%;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 575px) {
+  .content-container {
+    width: 92%;
+    margin: 0 auto;
+  }
+
+
+}
+
+@media only screen and (min-width: 576px) {
+
+
+
+
 }

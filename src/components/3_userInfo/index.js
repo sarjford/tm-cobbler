@@ -155,22 +155,22 @@ export default class Info extends Component {
     //       }
     //    }
     // }
-    // request.post('https://4cfb0fbc.ngrok.io/order')
-    //   .send(orderObject)
-    //   .set('Accept', 'application/json')
-    //   .then(function(res) {
-    //      console.log(JSON.stringify(res.body));
-    //
-    //      // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
-    //      // route('/step_1');
-    //   }.bind(this))
-    //   .catch(function(err) {
-    //     if (err) {
-    //       // need more error handling
-    //       console.log(err)
-    //       // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
-    //     }
-    //   }.bind(this));
+  request.post('https://4cfb0fbc.ngrok.io/order')
+    .send(orderObject)
+    .set('Accept', 'application/json')
+    .then(function(res) {
+       console.log(JSON.stringify(res.body));
+
+       // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
+       // route('/step_1');
+    }.bind(this))
+    .catch(function(err) {
+      if (err) {
+        // need more error handling
+        console.log(err)
+        // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
+      }
+    }.bind(this));
 
     this.props.setAppState({
       url: "/complete",
