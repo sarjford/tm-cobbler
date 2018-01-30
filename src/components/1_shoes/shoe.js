@@ -11,22 +11,20 @@ export default class Shoe extends Component {
 	}
 
 	selectShoe(){
-		console.log('select shoe clicked');
-		console.log(this.props.state.options.split(' / ')[1]);
+		// console.log('select shoe clicked');
+		// console.log(this.props.state.options.split(' / ')[1]);
 		// this.props.setAppState({  selectedShoe: { variantId: this.props.state.variant, repairId: '', size: this.props.state.options.split(' / ')[1] } });
 
 		this.props.setAppState({
 			selectedShoeIndex: this.props.index,
-			prevView: this.props.appState.currView,
-			currView: "/step_2", step: 2
+			url: "/step_2",
+			page: 2
 		});
 		route('/step_2');
 	}
 
 
 	render(props) {
-
-    console.log('Shoe', props)
 
 		return (
       <div>
@@ -39,10 +37,3 @@ export default class Shoe extends Component {
     )
 	}
 }
-
-
-// selectedShoe: {
-// 	variantId: '',
-// 	repairId: '',
-// 	size: ''
-// }

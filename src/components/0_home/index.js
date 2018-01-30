@@ -13,7 +13,6 @@ export default class Home extends Component {
     }
     this.verifyEmail = this.verifyEmail.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
-
   }
 
   updateEmail(e){
@@ -38,9 +37,12 @@ export default class Home extends Component {
     request.get('https://4cfb0fbc.ngrok.io/user')
       .query({ email: email })
       .then(function(res) {
-         this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
+         this.props.setAppState({
+           data: res.body,
+           url: "/step_1",
+           page: 1
+         });
          route('/step_1');
-
       }.bind(this))
       .catch(function(err) {
         if (err) {
@@ -53,17 +55,56 @@ export default class Home extends Component {
 
 	render(props, state) {
 		return (
-      <section style="border:solid blue;">
-        <h1>HOME</h1>
-        <h2>{ props.text }</h2>
-        <form>
-          <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onChange={this.updateEmail} />
-          <button
-            type="btn submit"
-            onClick={ this.verifyEmail }>Start a Repair</button>
-        </form>
-        <p>{ state.errorMsg }</p>
-        <a href="/step_1" style="height:50px;width:50px;border:solid black;">FORWARD</a>
+      <section class='home'>
+        <img class='header' src='../assets/cobbler_h1.png' />
+
+        <div class='home-description'>
+          <p>Every pair of shoes you buy from us comes with Cobbler Concierge, a completely free service.</p>
+          <p>For up to two years, we will pay for your shoes to get repaired and cover all of the shipping costs.</p>
+          <p>From start to finish, the whole process only takes about two weeks.</p>
+        </div>
+
+        <div>
+          <h2>Available Services</h2>
+          <p>•	Cleaning</p>
+	        <p>•	Minor scuffs</p>
+	        <p>•	Heel tip replacement</p>
+        </div>
+
+        <div>
+          <h3>How the complimentary service works:</h3>
+
+          <div>
+            <img src='../assets/icon-cobbler-01@3x.png' />
+            <h4>1. Send</h4>
+            <p>Enter your email address below to request a free shipping label. Box your shoes and send them to us, on us.</p>
+          </div>
+
+          <div>
+            <img src='../assets/icon-cobbler-02@3x.png' />
+            <h4>1. Repair</h4>
+            <p>Expert cobblers restore your shoes with top-quality craftsmanship and care in 2 weeks.</p>
+          </div>
+
+          <div>
+            <img src='../assets/icon-cobbler-03@3x.png' />
+            <h4>1. Send</h4>
+            <p>Your favorite shoes arrive back at your doorstep, good as new and ready to take on the world (again).</p>
+          </div>
+        </div>
+
+        <div>
+          <h2>Here we go</h2>
+          <p>Enter your email below to start the repair process.</p>
+          <form>
+            <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onChange={this.updateEmail} />
+            <button type="btn submit"
+              onClick={ this.verifyEmail }>Start Your Service</button>
+          </form>
+          <p>{ state.errorMsg }</p>
+        </div>
+
+        <p>*Terms & Conditions apply. More info.</p>
       </section>
 		);
 	}

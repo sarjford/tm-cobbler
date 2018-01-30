@@ -52,9 +52,8 @@ export default class Repairs extends Component {
 
     this.props.setAppState({
       selectedRepairs: selectedRepairsIds,
-      prevView: this.props.state.currView,
-      currView: "/step_3",
-      step: 3
+      url: "/step_3",
+			page: 3
     });
     route('/step_3');
   }

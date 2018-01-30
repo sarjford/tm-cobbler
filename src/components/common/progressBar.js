@@ -10,27 +10,37 @@ export default class Progress extends Component {
   }
 
   navigateBack() {
-    const newUrl = this.props.state.prevView;
-    const newStep = this.props.state.step - 1;
-    const newPrev = this.props.state.currView;
-    this.props.setAppState({ currView: newUrl, prevView: newPrev, step: newStep });
+    let urls = {
+      0: '/',
+      1: '/step_1',
+      2: '/step_2',
+      3: '/step_3',
+    }
+
+    let newPage = this.props.state.page - 1;
+    let newUrl = urls[newPage];
+
+    this.props.setAppState({
+      page: newPage,
+      url: newUrl
+    });
     route(newUrl);
   }
 
   exitCobbler() {
-    const newPrev = this.props.state.currView;
-    this.props.setAppState({ currView: '/', prevView: newPrev, step: 0 });
+    this.props.setAppState({
+      page: 0,
+      url: '/'
+    });
     route('/');
   }
 
   render(props) {
-    console.log('progress ', props)
-
     return (
       <section className="progress-bar">
         <div>
           <div className="nav-button back" onClick={ this.navigateBack }>BACK</div>
-          <h3>{ props.state.step } of 3</h3>
+          <h3>{ props.state.page } of 3</h3>
           <div className="nav-button exit" onClick={ this.exitCobbler }>X</div>
         </div>
       </section>

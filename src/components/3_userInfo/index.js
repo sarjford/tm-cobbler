@@ -121,24 +121,62 @@ export default class Info extends Component {
     e.preventDefault();
 
     let orderObject = this.createOrderObj();
+    console.log(orderObject)
 
-    request.post('https://4cfb0fbc.ngrok.io/order')
-      .send(orderObject)
-      .set('Accept', 'application/json')
-      .then(function(res) {
-         alert('yay got ' + JSON.stringify(res.body));
+    //
+    // let orderObject = {
+    //    order: {
+    //       attributes: {
+    //          channel: 'tm',
+    //          store_name: 'API',
+    //          creator: 'Sarah Ford',
+    //          ref_number: '1234',
+    //          customer_first_name: 'Sarah',
+    //          customer_last_name: 'Ford',
+    //          phone: '2605555555',
+    //          email: 'sarahf@tamaramellon.com'
+    //       },
+    //       order_address_attributes: {
+    //          line1: 'test',
+    //          line2: 'test',
+    //          city: 'test',
+    //          state: 'test',
+    //          zip: 'test'
+    //       },
+    //       line_items_attributes:{
+    //          0: {
+    //             category: 'womens',
+    //             associate_comments: 'test',
+    //             repair_ids: [ 'test', 'test' ],
+    //             style_id: '',
+    //             material_id: '',
+    //             size: '6'
+    //          }
+    //       }
+    //    }
+    // }
+    // request.post('https://4cfb0fbc.ngrok.io/order')
+    //   .send(orderObject)
+    //   .set('Accept', 'application/json')
+    //   .then(function(res) {
+    //      console.log(JSON.stringify(res.body));
+    //
+    //      // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
+    //      // route('/step_1');
+    //   }.bind(this))
+    //   .catch(function(err) {
+    //     if (err) {
+    //       // need more error handling
+    //       console.log(err)
+    //       // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
+    //     }
+    //   }.bind(this));
 
-         // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
-         // route('/step_1');
-      }.bind(this))
-      .catch(function(err) {
-        if (err) {
-          // need more error handling
-          console.log(err)
-          // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
-        }
-      }.bind(this));
-
+    this.props.setAppState({
+      url: "/complete",
+      page: 4
+    });
+    route('/complete');
   }
 
   updateInputValue(e){
@@ -168,9 +206,7 @@ export default class Info extends Component {
 
         <button
           className=""
-          onClick={this.submitOrder}>
-          SUBMIT ORDER
-        </button>
+          onClick={this.submitOrder}>SUBMIT REQUEST</button>
 
       </section>
     );

@@ -1,3 +1,55 @@
+// @font-face {
+// 	font-family: 'Futura';
+//   src: url('../../assets/fonts/FuturaStd-Light.eot'),
+//     url('../../assets/fonts/FuturaStd-Light.woff') format('woff'),
+// 		url('../../assets/fonts/FuturaStd-Light.ttf') format('truetype');
+// 	font-weight: 300;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: 'Futura';
+//   src: url('{{ "FuturaStd-Book.eot" | asset_url }}');
+// 	src: url('{{ "FuturaStd-Book.eot" | asset_url }}?#iefix') format('embedded-opentype'),
+// 		url('{{ "FuturaStd-Book.woff" | asset_url }}') format('woff'),
+// 		url('{{ "FuturaStd-Book.ttf" | asset_url }}') format('truetype');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: 'Futura';
+//   src: url('{{ "FuturaStd-Medium.eot" | asset_url }}');
+// 	src: url('{{ "FuturaStd-Medium.eot" | asset_url }}?#iefix') format('embedded-opentype'),
+// 		url('{{ "FuturaStd-Medium.woff" | asset_url }}') format('woff'),
+// 		url('{{ "FuturaStd-Medium.ttf" | asset_url }}') format('truetype');
+// 	font-weight: 500;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: 'Futura';
+//   src: url('{{ "FuturaStd-Heavy.eot" | asset_url }}');
+// 	src: url('{{ "FuturaStd-Heavy.eot" | asset_url }}?#iefix') format('embedded-opentype'),
+// 		url('{{ "FuturaStd-Heavy.woff" | asset_url }}') format('woff'),
+// 		url('{{ "FuturaStd-Heavy.ttf" | asset_url }}') format('truetype');
+// 	font-weight: bold;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: 'Futura';
+//   src: url('{{ "FuturaStd-Bold.eot" | asset_url }}');
+// 	src: url('{{ "FuturaStd-Bold.eot" | asset_url }}?#iefix') format('embedded-opentype'),
+// 		url('{{ "FuturaStd-Bold.woff" | asset_url }}') format('woff'),
+// 		url('{{ "FuturaStd-Bold.ttf" | asset_url }}') format('truetype');
+// 	font-weight: 800;
+// 	font-style: normal;
+// }
+
+* {
+  font-family: 'Futura', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+
+
+
 .progress-bar {
   width: 100%;
   background: #e6e6e6;

@@ -7,6 +7,7 @@ const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
 const promise = require('bluebird');
+const ajax = require('superagent');
 const bodyParser = require ('body-parser');
 
 
@@ -208,8 +209,19 @@ app.get('/user', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-  console.log(req)
-  console.log('req.body', req.body)
-  res.send('Hello World!');
+  let orderObj = req.body;
+  console.log('req.body', JSON.stringify(req.body))
+
+  ajax.post('https://orders.cobblerconcierge.com/api/partners/tm/orders')
+    .send(orderObj)
+    .set('Authorization', 'enzy9PvHnnuBJo2mHosLQQCq')
+    .set('Accept', 'application/vnd.CcOps.v1, application/json')
+    .then(function(res) {
+       // console.log(res)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 
 });

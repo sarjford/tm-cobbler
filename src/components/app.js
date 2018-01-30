@@ -17,15 +17,12 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      text: 'hello',
-      currView: '/',
-      prevView: '',
-      step: 0,
       selectedShoeIndex: 0,
       selectedRepairs: [],
       email: '',
 
-      // data: [],
+      page: 0,
+      url: '/',
 
       data: [],
 
@@ -63,10 +60,6 @@ export default class App extends Component {
   }
 
   render({}, { setAppState, state }) {
-    console.log('App')
-
-    console.log('state', this.state)
-
 
 		return (
       <Router>
