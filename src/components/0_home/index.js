@@ -58,9 +58,8 @@ export default class Home extends Component {
 
 	render(props, state) {
 		return (
-      <section className='page-container'>
 
-        <div className='content-container'>
+        <section className='page-container'>
 
           <section className='homepage-content'>
             <img src='../assets/cobbler_h1.png' />
@@ -71,31 +70,31 @@ export default class Home extends Component {
               <p>From start to finish, the whole process only takes about two weeks.</p>
             </div>
 
-            <div className='services-text'>
-              <h2>Available Services</h2>
+            <div className='available-services'>
+              <h3>Available Services</h3>
               <p>•	Cleaning</p>
               <p>•	Minor scuffs</p>
               <p>•	Heel tip replacement</p>
             </div>
 
             <div className='diagram'>
-              <h3>How the complimentary service works:</h3>
+              <h2>How the complimentary service works:</h2>
 
               <div className='send-step'>
                 <img src='../assets/icon-cobbler-01@3x.png' />
-                <h4>1. Send</h4>
+                <p>1. Send</p>
                 <p>Enter your email address below to request a free shipping label. Box your shoes and send them to us, on us.</p>
               </div>
 
               <div className='repair-step'>
                 <img src='../assets/icon-cobbler-02@3x.png' />
-                <h4>1. Repair</h4>
+                <p>1. Repair</p>
                 <p>Expert cobblers restore your shoes with top-quality craftsmanship and care in 2 weeks.</p>
               </div>
 
               <div className='return-step'>
                 <img src='../assets/icon-cobbler-03@3x.png' />
-                <h4>1. Send</h4>
+                <p>1. Send</p>
                 <p>Your favorite shoes arrive back at your doorstep, good as new and ready to take on the world (again).</p>
               </div>
             </div>
@@ -115,7 +114,6 @@ export default class Home extends Component {
 
           <p>*Terms & Conditions apply. More info.</p>
 
-        </div>
       </section>
 		);
 	}

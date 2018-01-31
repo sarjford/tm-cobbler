@@ -15,8 +15,6 @@ export default class Shoes extends Component {
 
     return (
       <section>
-        <Progress className="progressBar" state={ props.state } setAppState={ props.setAppState } />
-
         <h1>Which shoe would you like to repair?</h1>
         <p>Choose one of your shoes to repair:</p>
         { purchasedShoes }

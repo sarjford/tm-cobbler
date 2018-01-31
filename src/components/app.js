@@ -49,6 +49,8 @@ export default class App extends Component {
       //   }
       // ]
 
+
+
     };
     this.setAppState = this.setAppState.bind(this);
   }
@@ -62,7 +64,8 @@ export default class App extends Component {
 
 		return (
       <div>
-        {this.state.url.indexOf('step') > -1 ? <Progress /> : null }
+      {this.state.url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
+
         <Router>
           <Home path="/" state={ this.state } setAppState={ this.setAppState } />
           <Shoes path="/step_1" state={ this.state } setAppState={ this.setAppState } />

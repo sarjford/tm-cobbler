@@ -67,8 +67,6 @@ export default class Repairs extends Component {
 
     return (
       <section>
-        <Progress className="progressBar" state={ props.state } setAppState={ props.setAppState } />
-
         <h1>Great, let’s get these repaired:</h1>
 
         <section class="selected-shoe">

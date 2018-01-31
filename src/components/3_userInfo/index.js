@@ -190,7 +190,6 @@ export default class Info extends Component {
 
     return (
       <section>
-        <Progress className="progressBar" state={ props.state } setAppState={ props.setAppState } />
         <h1>Let’s make sure our info for you is still correct:</h1>
 
         <div>

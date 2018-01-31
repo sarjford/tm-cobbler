@@ -1,11 +1,11 @@
-// @font-face {
-// 	font-family: 'Futura';
-//   src: url('../../assets/fonts/FuturaStd-Light.eot'),
-//     url('../../assets/fonts/FuturaStd-Light.woff') format('woff'),
-// 		url('../../assets/fonts/FuturaStd-Light.ttf') format('truetype');
-// 	font-weight: 300;
-// 	font-style: normal;
-// }
+@font-face {
+	font-family: 'Futura';
+  src: url('./FuturaStd-Light.eot'),
+    url('./FuturaStd-Light.woff') format('woff'),
+		url('./FuturaStd-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
 // @font-face {
 // 	font-family: 'Futura';
 //   src: url('{{ "FuturaStd-Book.eot" | asset_url }}');
@@ -43,14 +43,27 @@
 // 	font-style: normal;
 // }
 
-h1, h2, h3, input, button, p, span {
-  font-family: 'Futura', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+html {
+  font-size: 62.5%;
 }
 
 body {
   margin: 0;
   padding: 0;
 }
+
+h1, h2, input, button, p, span {
+  font-family: 'Futura', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+p {
+  font-size: 1.4rem;
+  letter-spacing: 0.8px;
+  line-height: 1.71;
+  margin: 0 0 1.8rem;
+}
+
+
 
 
 .progress-bar {
@@ -65,23 +78,26 @@ body {
     text-align: center;
   }
 }
-
 .progress-bar > div {
   width: 70%;
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 575px) {
-  .content-container {
-    width: 92%;
-    margin: 0 auto;
-  }
-
-
+.page-container {
+  width: 92%;
+  margin: 0 auto;
+  padding: 34px 0 20px;
 }
+
+
 
 @media only screen and (min-width: 576px) {
 
+  .page-container {
+    width: 70%;
+    margin: 0 auto;
+    max-width: 800px;
+  }
 
 
 
