@@ -68,9 +68,9 @@ export default class Info extends Component {
     });
   }
 
-  componentDidMount () {
-    window.scrollTo(0, 0)
-  }
+  // componentDidMount () {
+  //   window.scrollTo(0, 0)
+  // }
 
   createOrderObj(){
     let result = { order: {} };
@@ -183,6 +183,8 @@ export default class Info extends Component {
       url: "/complete",
       page: 4
     });
+    window.scrollTo(0, 0)
+
     route('/complete');
   }
 

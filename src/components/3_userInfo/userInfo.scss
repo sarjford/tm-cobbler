@@ -18,3 +18,24 @@
 
 
 }
+@media only screen and (min-width: 576px) {
+  .user-info-page {
+    input {
+      padding: 20px;
+    }
+    button {
+      margin: 30px auto 0;
+      padding: 30px;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .user-info-page {
+    width: 80%;
+    margin: 0 auto;
+
+  }
+
+}

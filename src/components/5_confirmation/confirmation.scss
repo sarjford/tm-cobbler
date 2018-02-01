@@ -33,3 +33,19 @@
   width: 50%;
   margin: 32px 0;
 }
+
+@media only screen and (min-width: 576px) {
+  .confirmation-page {
+    width: 80%;
+  }
+  .confirmation-page > img {
+    width: 20%;
+
+  }
+  .expect-shoes-box {
+    padding: 30px;
+    width: 60%;
+    margin: 64px auto 48px;
+  }
+
+}

@@ -28,10 +28,6 @@ export default class Repairs extends Component {
   componentWillMount(){
     this.selectedCheckboxes = new Set();
   }
-  componentDidMount () {
-    window.scrollTo(0, 0)
-  }
-
   toggleCheckbox(label){
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
@@ -60,6 +56,8 @@ export default class Repairs extends Component {
       url: "/step_3",
 			page: 3
     });
+    window.scrollTo(0, 0);
+
     route('/step_3');
   }
 
@@ -94,7 +92,7 @@ export default class Repairs extends Component {
           </div>
 
           <button
-            className=""
+            className='repair-page-next'
             onClick={ this.selectRepairs }
             >NEXT</button>
         </section>

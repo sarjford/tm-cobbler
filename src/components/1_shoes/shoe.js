@@ -20,6 +20,7 @@ export default class Shoe extends Component {
 			url: "/step_2",
 			page: 2
 		});
+		window.scrollTo(0, 0);
 		route('/step_2');
 	}
 

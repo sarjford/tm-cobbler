@@ -67,6 +67,7 @@
   padding-top: 2.125rem;
   padding-bottom: 2.125rem;
   margin-bottom: 4rem;
+  position: relative;
 
   h4 {
     margin-bottom: .5rem;
@@ -88,6 +89,9 @@
     margin-bottom: 1rem;
 
   }
+  input.email-error {
+    border: solid red;
+  }
   button {
     width: 80%;
     display: block;
@@ -96,11 +100,15 @@
   }
   span {
     display: none;
+    margin-top: 10px;
+    font-size: .725rem;
+    color: red;
+  }
+  span.email-error {
+    display: block;
   }
 }
-.email-error {
-  border: solid red;
-}
+
 .no-error {
 }
 h6 a {

@@ -2,6 +2,8 @@ import { h, Component } from 'preact';
 import request from 'superagent';
 import { route } from 'preact-router';
 import './home.scss';
+import Loading from './loading.js';
+
 
 
 export default class Home extends Component {
@@ -11,12 +13,14 @@ export default class Home extends Component {
     this.state = {
       errorMsg: '',
       errorClassName: 'no-error',
+      loading: false
     }
     this.verifyEmail = this.verifyEmail.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
   }
 
   updateEmail(e){
+    this.setState({ errorClassName: '' });
     this.props.setAppState({ email: e.target.value });
   }
 
@@ -35,7 +39,7 @@ export default class Home extends Component {
       this.setState({ errorMsg: 'Please enter a valid email address.', errorClassName: 'email-error' });
       return;
     }
-    this.setState({ errorMsg: '', errorClassName: '' });
+    this.setState({ errorMsg: '', errorClassName: '', loading: true });
 
     request.get('https://4cfb0fbc.ngrok.io/user')
       .query({ email: email })
@@ -45,13 +49,14 @@ export default class Home extends Component {
            url: "/step_1",
            page: 1
          });
+         window.scrollTo(0, 0);
          route('/step_1');
       }.bind(this))
       .catch(function(err) {
         if (err) {
           // need more error handling
           console.log(err)
-          this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
+          this.setState({ errorMsg: err.response.text, errorClassName: 'email-error', loading: false });
         }
       }.bind(this));
 
@@ -103,14 +108,15 @@ export default class Home extends Component {
           </section>
 
           <div className='start-repair-process'>
+            {this.state.loading ? <Loading /> : null }
             <h4>Here we go</h4>
             <h6>Enter your email below to start the repair process.</h6>
             <form>
-              <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onChange={this.updateEmail} />
+              <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onInput={this.updateEmail} />
               <button type="btn submit"
                 onClick={ this.verifyEmail }>Start Your Repair</button>
             </form>
-            <span>{ state.errorMsg }</span>
+            <span className={ state.errorClassName }>{ state.errorMsg }</span>
           </div>
 
           <h6 className='terms'>*Terms & Conditions apply. <a>More info.</a></h6>

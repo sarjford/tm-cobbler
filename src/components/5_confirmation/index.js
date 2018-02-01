@@ -4,7 +4,7 @@ import './confirmation.scss';
 
 
 const Confirmation = function(props) {
-  
+
   return (
     <section className='page-container'>
       <section className='confirmation-page'>

@@ -204,7 +204,8 @@ app.get('/user', (req, res) => {
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log(JSON.stringify(error));
+
     });
 });
 

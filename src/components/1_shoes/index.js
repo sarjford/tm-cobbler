@@ -7,10 +7,6 @@ import './shoes.scss';
 
 export default class Shoes extends Component {
 
-  componentDidMount () {
-    window.scrollTo(0, 0)
-  }
-
   render(props) {
 
     let purchasedShoes = props.state.data.map(function(shoeData, i){
