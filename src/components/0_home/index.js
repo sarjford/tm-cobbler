@@ -1,8 +1,10 @@
 import { h, Component } from 'preact';
-import request from 'superagent';
 import { route } from 'preact-router';
+
+import request from 'superagent';
+import Loading from '../common/loading.js';
+
 import './home.scss';
-import Loading from './loading.js';
 
 
 
@@ -29,11 +31,9 @@ export default class Home extends Component {
     const email = this.props.state.email;
 
     function validateEmail(email) {
-      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     }
-
-    console.log(email)
 
     if (!validateEmail(email)) {
       this.setState({ errorMsg: 'Please enter a valid email address.', errorClassName: 'email-error' });
