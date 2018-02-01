@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: [ './src', './src/main.scss' ],
+  entry: [ './src', ],
 
   output: {
     path: path.join(__dirname, 'build'),
@@ -25,6 +25,16 @@ module.exports = {
         test: /\.scss$/,
         exclude: /node_modules/,
         loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  name: '[name].[ext]',
+                  outputPath: 'fonts/'
+              }
+          }]
       },
     ],
   },

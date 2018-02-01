@@ -3,6 +3,8 @@ import { route } from 'preact-router';
 // import Shoe from './shoe';
 import Progress from '../common/progressBar';
 import request from 'superagent';
+import './userInfo.scss';
+
 
 // {
 //    order: {
@@ -49,6 +51,7 @@ export default class Info extends Component {
 
   }
 
+
   componentWillMount() {
 
     console.log(this.props);
@@ -63,6 +66,10 @@ export default class Info extends Component {
       zip: this.props.state.data[0].customer.zip || '',
       phone: this.props.state.data[0].customer.phone || ''
     });
+  }
+
+  componentDidMount () {
+    window.scrollTo(0, 0)
   }
 
   createOrderObj(){
@@ -155,22 +162,22 @@ export default class Info extends Component {
     //       }
     //    }
     // }
-  request.post('https://4cfb0fbc.ngrok.io/order')
-    .send(orderObject)
-    .set('Accept', 'application/json')
-    .then(function(res) {
-       console.log(JSON.stringify(res.body));
-
-       // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
-       // route('/step_1');
-    }.bind(this))
-    .catch(function(err) {
-      if (err) {
-        // need more error handling
-        console.log(err)
-        // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
-      }
-    }.bind(this));
+  // request.post('https://4cfb0fbc.ngrok.io/order')
+  //   .send(orderObject)
+  //   .set('Accept', 'application/json')
+  //   .then(function(res) {
+  //      console.log(JSON.stringify(res.body));
+  //
+  //      // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
+  //      // route('/step_1');
+  //   }.bind(this))
+  //   .catch(function(err) {
+  //     if (err) {
+  //       // need more error handling
+  //       console.log(err)
+  //       // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
+  //     }
+  //   }.bind(this));
 
     this.props.setAppState({
       url: "/complete",
@@ -189,24 +196,26 @@ export default class Info extends Component {
     console.log('info state', state)
 
     return (
-      <section>
-        <h1>Let’s make sure our info for you is still correct:</h1>
+      <section className='page-container'>
+        <section className='user-info-page'>
 
-        <div>
-          <input value={this.state.first} onChange={this.updateInputValue} placeholder="First Name" name="first" />
-          <input value={this.state.last} onChange={this.updateInputValue} placeholder="Last Name" name="last" />
-          <input value={this.state.address1} onChange={this.updateInputValue} placeholder="Address Line 1" name="address1" />
-          <input value={this.state.address2} onChange={this.updateInputValue} placeholder="Address Line 2" name="address2" />
-          <input value={this.state.city} onChange={this.updateInputValue} placeholder="City" name="city" />
-          <input value={this.state.state} onChange={this.updateInputValue} placeholder="State" name="state" />
-          <input value={this.state.zip} onChange={this.updateInputValue} placeholder="Zip Code" name="zip"/>
-          <input value={this.state.phone} onChange={this.updateInputValue} placeholder="Phone Number" name="phone" />
-        </div>
+          <h1>Let’s make sure our info for you is still correct:</h1>
 
-        <button
-          className=""
-          onClick={this.submitOrder}>SUBMIT REQUEST</button>
+          <div>
+            <input value={this.state.first} onChange={this.updateInputValue} placeholder="First Name" name="first" />
+            <input value={this.state.last} onChange={this.updateInputValue} placeholder="Last Name" name="last" />
+            <input value={this.state.address1} onChange={this.updateInputValue} placeholder="Address Line 1" name="address1" />
+            <input value={this.state.address2} onChange={this.updateInputValue} placeholder="Address Line 2" name="address2" />
+            <input value={this.state.city} onChange={this.updateInputValue} placeholder="City" name="city" />
+            <input value={this.state.state} onChange={this.updateInputValue} placeholder="State" name="state" />
+            <input value={this.state.zip} onChange={this.updateInputValue} placeholder="Zip Code" name="zip"/>
+            <input value={this.state.phone} onChange={this.updateInputValue} placeholder="Phone Number" name="phone" />
+          </div>
 
+          <button
+            className=""
+            onClick={this.submitOrder}>SUBMIT REQUEST</button>
+        </section>
       </section>
     );
   }

@@ -24,9 +24,9 @@ export default class Checkbox extends Component {
 
     return (
       <div className="checkbox">
-          <div  className={ state.checkedClassName }
-                onClick={ this.toggleCheckboxChange } />
-          <span>{ props.label }</span>
+        <div className={ state.checkedClassName }
+              onClick={ this.toggleCheckboxChange } />
+        <p>{ props.label }</p>
       </div>
     );
   }

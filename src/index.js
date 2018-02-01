@@ -1,6 +1,8 @@
 import { h, render, Component } from 'preact';
 import App from './components/app';
-import './main.scss';
+import './index.scss';
+
+import './assets/fonts/futura.scss'
 
 
 

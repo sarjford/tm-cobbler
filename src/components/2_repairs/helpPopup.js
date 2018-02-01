@@ -7,7 +7,7 @@ const Help = function(props) {
     <section>
       <p onClick={props.hide}>X</p>
       <p>{ props }</p>
-      <h2>Need more?</h2>
+      <h4>Need more?</h4>
       <p>Reach out to our client services team if you have some serious shoe needs and we’ll get you setup:</p>
       <div>
         <img src="" />

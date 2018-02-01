@@ -1,8 +1,110 @@
-.shoe {
-  border: solid;
-  padding: 20px;
+
+.page-1-shoes {
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    font-style: italic;
+    text-align: center;
+  }
 }
 
-.shoe img {
-  width: 30%;
+.shoe-orders > div {
+  margin: 32px 0;
+  display: flex;
+}
+
+.shoe-orders {
+  border: 2px solid black;
+  width: 100%;
+  margin: 0 0 16px;
+
+  .img, .info {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
+.img {
+  width: 35%;
+  margin: 0 4%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.info {
+  width: 57%;
+  position: relative;
+
+  h6 {
+    margin: 0;
+  }
+  h5 {
+    margin: 0;
+    font-size: 0.625rem;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    font-weight: bold;
+  }
+  button.white {
+    color: #000;
+    border: 3px solid black;
+    padding: 8px 20px;
+
+    background: #fff;
+    bottom: 4px;
+    position: absolute;
+  }
+}
+
+
+@media only screen and (min-width: 576px) {
+
+  .page-1-shoes {
+    max-width: 500px;
+  }
+  .img {
+    width: 40%;
+    margin: 0 16px;
+  }
+
+  .shoe-orders {
+    .info {
+      width: 57%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .info {
+    h6, h5, button.white {
+      align-self: flex-start;
+    }
+
+    h6 {
+      font-size: 0.875rem;
+    }
+
+    h5 {
+      margin: 16px 0 32px;
+    }
+    button.white {
+      bottom: auto;
+      position: relative;
+    }
+  }
+
+.info > div {
+  max-width: 50%;
+}
+button.white {
+  padding: 12px 28px;
+
+}
+
 }

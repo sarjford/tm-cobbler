@@ -1,66 +1,202 @@
-
-input, button {
-  width: 50%;
-  font-size: 20px;
-  border: solid black;
-}
-
-
-.email-error {
-  border: solid red;
-}
-.no-error {
-}
-
-.homepage-content img {
+.homepage-content > img {
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
+  display: block;
 }
 
-
+.description p:last-child {
+  margin: 0 0 0;
+}
 
 .available-services {
   min-width: 200px;
   width: 60%;
   margin: 0 auto;
-  margin-top: 48px;
-  margin-bottom: 48px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 
   h3 {
     font-style: italic;
     font-family: "Palatino Linotype", "Book Antiqua", 'Palatino', serif;
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     letter-spacing: .03em;
   }
-  p {
-    margin: 0 0 .2rem 1.5rem;
+  h6 {
+    margin: 0 0 .2rem 1.6rem;
+    line-height: 1.83;
   }
 }
+
 
 .diagram {
   background: #f3f3f3;
   border: solid .4rem #e6e6e6;
+  text-align: center;
+  padding-top: 4rem;
+  margin-bottom: 4rem;
 
+  h2 {
+    width: 75%;
+    margin: 0 auto 1.5rem;
+  }
   div {
     width: 75%;
     margin: 0 auto;
+    margin-bottom: 4rem;
   }
   img {
-    width: 60%;
-    margin: 64px auto 24px;
+    width: 40%;
     display: block;
+    margin: 0 auto 1.5rem;
   }
-  p:nth-of-type(1) {
+  h6:nth-of-type(1) {
     text-align: center;
     font-weight: bold;
   }
 }
 
 
+.start-repair-process > *, button {
+  margin: 0 auto;
+}
+.start-repair-process {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+	border: solid 1px #000000;
+  text-align: center;
+  padding-top: 2.125rem;
+  padding-bottom: 2.125rem;
+  margin-bottom: 4rem;
+
+  h4 {
+    margin-bottom: .5rem;
+    width: 60%;
+    text-transform: uppercase;
+  }
+  h6 {
+    width: 60%;
+    margin-bottom: 1.625rem;
+  }
+  form {
+    width: 100%;
+  }
+  input {
+    border: solid 1px #979797;
+    display: block;
+    width: 88%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+  }
+  button {
+    width: 80%;
+    display: block;
+    background: #000;
+    color: #fff;
+  }
+  span {
+    display: none;
+  }
+}
+.email-error {
+  border: solid red;
+}
+.no-error {
+}
+h6 a {
+  font-size: 0.75rem;
+}
+
+
+
+
 
 @media only screen and (min-width: 576px) {
+  .homepage-content > img {
+    width: 75%;
+    margin-bottom: 2rem;
+  }
 
+  .available-services {
+    h3 {
+      text-align: center;
+    }
+    h6 {
+      margin: 0 0 .2rem 26%;
+    }
+  }
+
+  .diagram {
+    padding: 1.778rem 0;
+    h6 {
+      font-size: .6em;
+      margin-bottom: .875rem;
+    }
+    div {
+      width: 32%;
+      display: inline-block;
+      padding: 0 5%;
+      box-sizing: border-box;
+      margin-bottom: 0;
+    }
+    .second img {
+      width: 60%;
+    }
+  }
+
+  .start-repair-process {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    min-width: 400px;
+
+    input {
+      padding: .8em 3%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: .9em 0;
+      font-size: .75em;
+    }
+    input, button {
+      width: 45%;
+      display: inline-block;
+      margin: 0 1%;
+    }
+  }
+  h6.terms {
+    text-align: center;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .homepage-content > img {
+    width: 45%;
+    margin-bottom: 2.6rem;
+    margin-top: 3em;
+  }
+
+  .available-services {
+    margin-top: 2.8rem;
+    margin-bottom: 2.8rem;
+    h6 {
+      margin: 0 0 .2rem 26%;
+    }
+  }
+
+  .description {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .start-repair-process {
+    max-width: 600px;
+  }
+  input, button {
+    margin: 0 2%;
+  }
 
 
 

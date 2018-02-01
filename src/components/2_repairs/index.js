@@ -3,6 +3,8 @@ import { route } from 'preact-router';
 import Progress from '../common/progressBar';
 import Checkbox from './checkbox';
 import Help from './helpPopup';
+import './repairs.scss';
+
 
 const repairs = {
   'Cleaning': 134,
@@ -25,6 +27,9 @@ export default class Repairs extends Component {
 
   componentWillMount(){
     this.selectedCheckboxes = new Set();
+  }
+  componentDidMount () {
+    window.scrollTo(0, 0)
   }
 
   toggleCheckbox(label){
@@ -66,31 +71,33 @@ export default class Repairs extends Component {
     });
 
     return (
-      <section>
-        <h1>Great, let’s get these repaired:</h1>
+      <section className='page-container'>
+        <section className='page-2-repairs'>
+          <h1>Great, let’s get these repaired:</h1>
 
-        <section class="selected-shoe">
-          { props.state.data[props.state.selectedShoeIndex].name }
-          { props.state.data[props.state.selectedShoeIndex].options }
-          <img src={ props.state.data[props.state.selectedShoeIndex].imageSrc } />
+          <section class="selected-shoe">
+            <img src={ props.state.data[props.state.selectedShoeIndex].imageSrc } />
+            <h6>{ props.state.data[props.state.selectedShoeIndex].name }</h6>
+            <h5>{ props.state.data[props.state.selectedShoeIndex].options }</h5>
+          </section>
+
+          <h1>What kind of love do your shoes need?</h1>
+          <p>Check all that apply.</p>
+
+          <section className="checkboxes">
+            { checkboxes }
+          </section>
+
+          <div className="help-popup">
+            <a onClick={ this.showHelpPopup }>Don’t see your needed repairs here?</a>
+            {this.state.popupVisible ? <Help hide={this.hideHelpPopup} /> : null }
+          </div>
+
+          <button
+            className=""
+            onClick={ this.selectRepairs }
+            >NEXT</button>
         </section>
-
-        <h1>What kind of love do your shoes need?</h1>
-
-        <section className="checkboxes">
-          { checkboxes }
-        </section>
-
-        <div className="help-popup">
-          <p onClick={ this.showHelpPopup }>Don’t see your needed repairs here?</p>
-          {this.state.popupVisible ? <Help hide={this.hideHelpPopup} /> : null }
-        </div>
-
-        <button
-          className=""
-          onClick={ this.selectRepairs }
-          >NEXT</button>
-
       </section>
     );
   }

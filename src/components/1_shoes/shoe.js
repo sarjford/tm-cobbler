@@ -27,12 +27,20 @@ export default class Shoe extends Component {
 	render(props) {
 
 		return (
-      <div>
-        { props.state.name }
-        { props.state.options }
-        <img src={ props.state.imageSrc } />
-				<button onClick={ this.selectShoe }>SELECT</button>
+      <div className='shoe-orders'>
+				<div>
+					<div className='img'>
+						<img src={ props.state.imageSrc } />
+					</div>
 
+					<div className='info'>
+						<div>
+			        <h6>{ props.state.name }</h6>
+			        <h5>{ props.state.options }</h5>
+							<button className='white' onClick={ this.selectShoe }>SELECT</button>
+						</div>
+					</div>
+				</div>
       </div>
     )
 	}

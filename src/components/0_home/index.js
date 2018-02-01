@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import request from 'superagent';
 import { route } from 'preact-router';
+import './home.scss';
 
 
 export default class Home extends Component {
@@ -72,47 +73,47 @@ export default class Home extends Component {
 
             <div className='available-services'>
               <h3>Available Services</h3>
-              <p>•	Cleaning</p>
-              <p>•	Minor scuffs</p>
-              <p>•	Heel tip replacement</p>
+              <h6>•	Cleaning</h6>
+              <h6>•	Minor scuffs</h6>
+              <h6>•	Heel tip replacement</h6>
             </div>
 
             <div className='diagram'>
               <h2>How the complimentary service works:</h2>
 
-              <div className='send-step'>
+              <div className='first'>
                 <img src='../assets/icon-cobbler-01@3x.png' />
-                <p>1. Send</p>
-                <p>Enter your email address below to request a free shipping label. Box your shoes and send them to us, on us.</p>
+                <h6>1. Send</h6>
+                <h6>Enter your email address below to request a free shipping label. Box your shoes and send them to us, on us.</h6>
               </div>
 
-              <div className='repair-step'>
+              <div className='second'>
                 <img src='../assets/icon-cobbler-02@3x.png' />
-                <p>1. Repair</p>
-                <p>Expert cobblers restore your shoes with top-quality craftsmanship and care in 2 weeks.</p>
+                <h6>2. Repair</h6>
+                <h6>Expert cobblers restore your shoes with top-quality craftsmanship and care in 2 weeks.</h6>
               </div>
 
-              <div className='return-step'>
+              <div className='third'>
                 <img src='../assets/icon-cobbler-03@3x.png' />
-                <p>1. Send</p>
-                <p>Your favorite shoes arrive back at your doorstep, good as new and ready to take on the world (again).</p>
+                <h6>3. Return</h6>
+                <h6>Your favorite shoes arrive back at your doorstep, good as new and ready to take on the world (again).</h6>
               </div>
             </div>
 
           </section>
 
           <div className='start-repair-process'>
-            <h2>Here we go</h2>
-            <p>Enter your email below to start the repair process.</p>
+            <h4>Here we go</h4>
+            <h6>Enter your email below to start the repair process.</h6>
             <form>
               <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onChange={this.updateEmail} />
               <button type="btn submit"
-                onClick={ this.verifyEmail }>Start Your Service</button>
+                onClick={ this.verifyEmail }>Start Your Repair</button>
             </form>
-            <p>{ state.errorMsg }</p>
+            <span>{ state.errorMsg }</span>
           </div>
 
-          <p>*Terms & Conditions apply. More info.</p>
+          <h6 className='terms'>*Terms & Conditions apply. <a>More info.</a></h6>
 
       </section>
 		);
