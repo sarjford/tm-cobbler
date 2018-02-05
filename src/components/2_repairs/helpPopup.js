@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import Contact from '../common/contact.js';
 
 
 const Help = function(props) {
@@ -12,14 +13,7 @@ const Help = function(props) {
         <h4>Need more?</h4>
         <p>Reach out to our client services team if you have some serious shoe needs and we’ll get you setup:</p>
       </div>
-      <div className='contact'>
-        <img src='../../assets/phone-icon@3x.png' />
-        <a href="tel:+18664195500">Call 866.419.5500</a>
-      </div>
-      <div className='contact'>
-      <img src='../../assets/email-icon@3x.png' />
-        <a href="mailto:atyourservice@tamaramellon.com">Email</a>
-      </div>
+      < Contact />
     </section>
   )
 }

@@ -1,61 +1,27 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
-// import Shoe from './shoe';
-import Progress from '../common/progressBar';
 import request from 'superagent';
+import Unsuccessful from './unsuccessful.js';
+import Loading from '../common/loading.js';
+
+
 import './userInfo.scss';
-
-
-// {
-//    order: {
-//       attributes: {
-//          channel: "tm", // is this our code?
-//          store_name: "API", // ask brendan to add this to our co.
-//          creator: "", // customer name
-//          ref_number: "", // order #
-//          customer_first_name: "",
-//          customer_last_name: "",
-//          phone: "",
-//          email: ""
-//       },
-//       order_address_attributes: {
-//          line1: "",
-//          line2: "",
-//          city: "",
-//          state: "",
-//          zip: ""
-//       },
-//       line_items_attributes:{
-//          0: {
-//             category: "womens",
-//             associate_comments: "", // send variant ID
-//             repair_ids: [ "1", "4" ], // ask brendan
-//             style_id: "9", // ask brendan
-//             material_id: "4", // ask brendan
-//             size: ""
-//          }
-//       }
-//    }
-// }
-
 
 
 export default class Info extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      loading: false,
+      error: false
+    }
     this.createOrderObj = this.createOrderObj.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
-
   }
 
-
   componentWillMount() {
-
-    console.log(this.props);
-
     this.setState({
       first: this.props.state.data[0].customer.first_name || '',
       last: this.props.state.data[0].customer.last_name || '',
@@ -67,10 +33,6 @@ export default class Info extends Component {
       phone: this.props.state.data[0].customer.phone || ''
     });
   }
-
-  // componentDidMount () {
-  //   window.scrollTo(0, 0)
-  // }
 
   createOrderObj(){
     let result = { order: {} };
@@ -126,34 +88,38 @@ export default class Info extends Component {
 
   submitOrder(e){
     e.preventDefault();
+    this.setState({ loading: true });
 
-    let orderObject = this.createOrderObj();
-    console.log(orderObject)
+    // let orderObject = this.createOrderObj();
+    let orderObject = { a: 'b' }
+    request.post('https://4cfb0fbc.ngrok.io/order')
+      .send(orderObject)
+      .set('Accept', 'application/json')
 
-  request.post('https://4cfb0fbc.ngrok.io/order')
-    .send(orderObject)
-    .set('Accept', 'application/json')
-    .then(function(res) {
-       console.log(res);
+      .then(function(res) {
+        if (!!JSON.parse(res.body.response.text).success) {
+          console.log('success!')
+        } else {
+          this.setState({ loading: false, error: true });
+        }
 
-       // this.props.setAppState({ data: res.body, prevView: this.props.state.currView, currView: "/step_1", step: 1 });
-       // route('/step_1');
-    }.bind(this))
-    .catch(function(err) {
-      // if (err) {
-        // need more error handling
-        console.log(err)
-        // this.setState({ errorMsg: err.response.text, errorClassName: 'email-error' });
-      // }
-    }.bind(this));
+        // if (res.body.response.text) {
+        //
+        // }
+        // console.log(res);
+        // this.props.setAppState({
+        //  url: "/complete",
+        //  page: 4
+        // });
+        // window.scrollTo(0, 0);
+        // route('/complete');
 
-    // this.props.setAppState({
-    //   url: "/complete",
-    //   page: 4
-    // });
-    // window.scrollTo(0, 0);
+      }.bind(this))
+      .catch(function(err) {
+        console.log(err);
+        this.setState({ loading: false, error: true });
 
-    // route('/complete');
+      }.bind(this));
   }
 
   updateInputValue(e){
@@ -168,6 +134,8 @@ export default class Info extends Component {
     return (
       <section className='page-container'>
         <section className='user-info-page'>
+          {this.state.loading ? <Loading /> : null }
+          {this.state.error ? <Unsuccessful /> : null }
 
           <h1>Let’s make sure our info for you is still correct:</h1>
 

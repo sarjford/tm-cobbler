@@ -6,15 +6,10 @@ export default class Shoe extends Component {
 
 	constructor(props) {
 		super(props);
-		// this.state = {}
 		this.selectShoe = this.selectShoe.bind(this);
 	}
 
 	selectShoe(){
-		// console.log('select shoe clicked');
-		// console.log(this.props.state.options.split(' / ')[1]);
-		// this.props.setAppState({  selectedShoe: { variantId: this.props.state.variant, repairId: '', size: this.props.state.options.split(' / ')[1] } });
-
 		this.props.setAppState({
 			selectedShoeIndex: this.props.index,
 			url: "/step_2",
@@ -24,8 +19,9 @@ export default class Shoe extends Component {
 		route('/step_2');
 	}
 
-
 	render(props) {
+		let options = props.state.options.split(' / ');
+		let details =  options[0] + ' | ' + 'Size ' + options[1];
 
 		return (
       <div className='shoe-orders'>
@@ -37,7 +33,7 @@ export default class Shoe extends Component {
 					<div className='info'>
 						<div>
 			        <h6>{ props.state.name }</h6>
-			        <h5>{ props.state.options }</h5>
+			        <h5>{details}</h5>
 							<button className='white' onClick={ this.selectShoe }>SELECT</button>
 						</div>
 					</div>

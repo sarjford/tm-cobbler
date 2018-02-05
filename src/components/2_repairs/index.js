@@ -25,6 +25,12 @@ export default class Repairs extends Component {
     this.hideHelpPopup = this.hideHelpPopup.bind(this);
   }
 
+  // componentDidMount(){
+  //   window.onpopstate = function(event) {
+  //     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  //   };
+  // }
+
   componentWillMount(){
     this.selectedCheckboxes = new Set();
   }
@@ -71,6 +77,8 @@ export default class Repairs extends Component {
     return (
       <section className='page-container'>
         <section className='page-2-repairs'>
+          {this.state.popupVisible ? <Help hide={this.hideHelpPopup} /> : null }
+
           <h1>Great, let’s get these repaired:</h1>
 
           <section class="selected-shoe">
@@ -88,14 +96,16 @@ export default class Repairs extends Component {
 
           <div className="help-popup">
             <a onClick={ this.showHelpPopup }>Don’t see your needed repairs here?</a>
-            {this.state.popupVisible ? <Help hide={this.hideHelpPopup} /> : null }
           </div>
 
           <button
             className='repair-page-next'
             onClick={ this.selectRepairs }
             >NEXT</button>
+
+
         </section>
+
       </section>
     );
   }

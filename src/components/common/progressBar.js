@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
+import './progress.scss';
+
 
 
 export default class Progress extends Component {
@@ -40,12 +42,12 @@ export default class Progress extends Component {
       <section className="progress-bar">
         <div>
           <div className="nav-button back" onClick={ this.navigateBack }>
-          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Angle_left_font_awesome.svg/1000px-Angle_left_font_awesome.svg.png' />
+          <img src='../../assets/back_icon@2x.png' />
 
           </div>
           <h3>{ props.state.page } of 3</h3>
           <div className="nav-button exit" onClick={ this.exitCobbler }>
-          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Saint_Andrew%27s_cross_black.svg/1000px-Saint_Andrew%27s_cross_black.svg.png' />
+          <img src='../../assets/x_icon@2x.png' />
 
 
           </div>

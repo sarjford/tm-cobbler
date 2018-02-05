@@ -9,11 +9,14 @@
   a {
     width: 80%;
     margin: 0 auto;
+    cursor: pointer;
+
     img {
       width: 90%;
     }
   }
 }
+
 .expect-shoes-box {
   h1 {
     width: 80%;
@@ -33,6 +36,26 @@
   width: 50%;
   margin: 32px 0;
 }
+
+// .confirmation-page {
+//   .img-container {
+//     width: 100%;
+//
+//   }
+//   .img-wrapper {
+//     padding-bottom: 30%;
+//
+//   }
+//   .img-src {
+//     background:url('./continueShopping-mobile.png') no-repeat center;
+//     background-size:cover;
+//     position: absolute;
+//     top: 0; bottom: 0; left: 0; right: 0;
+//   }
+// }
+
+
+
 
 @media only screen and (min-width: 576px) {
   .confirmation-page {

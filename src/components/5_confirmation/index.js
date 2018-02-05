@@ -20,7 +20,10 @@ const Confirmation = function(props) {
           <p>About two weeks. We’ll send you an email once we receive your shoes, and again when they’re on their way back.</p>
         </div>
 
-        <a href=''><img src='../assets/siren-105-leopard-haircalf-002-r-3-qc-paola-kudacki@3x.jpg' /></a>
+        <a href=''>
+          <img src='../assets/siren-105-leopard-haircalf-002-r-3-qc-paola-kudacki@3x.jpg' />
+        </a>
+
       </section>
     </section>
   )

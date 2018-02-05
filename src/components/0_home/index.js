@@ -1,11 +1,8 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
-
 import request from 'superagent';
 import Loading from '../common/loading.js';
-
 import './home.scss';
-
 
 
 export default class Home extends Component {
@@ -20,6 +17,12 @@ export default class Home extends Component {
     this.verifyEmail = this.verifyEmail.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
   }
+
+  // componentDidMount(){
+  //   window.onpopstate = function(event) {
+  //     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  //   };
+  // }
 
   updateEmail(e){
     this.setState({ errorClassName: '' });
@@ -63,9 +66,11 @@ export default class Home extends Component {
   }
 
 	render(props, state) {
+
+
 		return (
 
-        <section className='page-container'>
+        <section className='page-container-home'>
 
           <section className='homepage-content'>
             <img src='../assets/cobbler_h1.png' />
@@ -78,9 +83,11 @@ export default class Home extends Component {
 
             <div className='available-services'>
               <h3>Available Services</h3>
-              <h6>•	Cleaning</h6>
-              <h6>•	Minor scuffs</h6>
-              <h6>•	Heel tip replacement</h6>
+              <div>
+                <h6><span>•</span>Cleaning</h6>
+                <h6><span>•</span>Minor scuffs</h6>
+                <h6><span>•</span>Heel tip replacement</h6>
+              </div>
             </div>
 
             <div className='diagram'>

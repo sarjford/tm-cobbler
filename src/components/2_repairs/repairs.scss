@@ -2,6 +2,7 @@
   padding: 32px 16px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border: solid 1px #000000;
+  margin-bottom: 42px;
   img {
     width: 100%;
     margin-bottom: 16px;
@@ -20,20 +21,30 @@
   }
 }
 
+.page-2-repairs {
+  position: relative;
+  z-index: 0;
+}
+.help {
+  position: absolute;
+  z-index: 100;
+}
+
 .page-2-repairs > p {
   font-style: italic;
   text-align: center;
 }
 
 .checkboxes, .help-popup {
-  width: 80%;
-  margin: 0 auto;
+  padding-left: 20%;
 }
+
 .help-popup {
-  margin-bottom: 64px;
+  margin-bottom: 36px;
   a {
     font-weight: bold;
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -61,18 +72,22 @@
   display: none;
 }
 
-button {
-  width: 80%;
+button.repair-page-next {
   display: block;
   background: #000;
   color: #fff;
+  margin: 0 auto;
+  min-width: 90px;
+  padding: 16px 0;
+  width: 120px;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
 }
 
-.help {
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px #000000;
-  padding: 30px;
-}
 .text {
   width: 90%;
   text-align: center;
@@ -83,43 +98,52 @@ button {
   }
   p {
     font-size: .625rem;
+    margin: 0 0 .5rem;
   }
 }
 .help {
-  position: relative;
+  position: absolute;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #000000;
+  padding: 20px;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #fff;
+  bottom: 20%;
+  max-width: 240px;
+
+
   .exit-help-box {
     padding: 10px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     width: 20px;
     img {
       width: 100%;
+      cursor: pointer;
     }
-  }
-  .contact {
-    width: 60%;
-    margin: 0 auto 10px;
-  }
 
-  .contact img {
-    width: 30px;
-    vertical-align: bottom;
   }
-  .contact a {
-    margin-left: 20px;
-  }
-
 }
 
-
 @media only screen and (min-width: 1024px) {
-  .page-2-repairs {
-    width: 70%;
-    margin: 0 auto;
-  }
-  button {
+  button.repair-page-next {
     padding: 12px 28px;
+    width: 140px;
 
+  }
+  .checkboxes, .help-popup {
+    padding-left: 30%;
+  }
+
+  .help-popup a {
+    font-size: .74rem;
+  }
+
+  .help {
+    width: 60%;
+    padding: 30px;
   }
 }

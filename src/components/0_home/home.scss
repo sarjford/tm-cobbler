@@ -16,6 +16,11 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 
+  div {
+    margin: 0 auto;
+    display: block;
+  }
+
   h3 {
     font-style: italic;
     font-family: "Palatino Linotype", "Book Antiqua", 'Palatino', serif;
@@ -23,8 +28,11 @@
     letter-spacing: .03em;
   }
   h6 {
-    margin: 0 0 .2rem 1.6rem;
+    margin: 0 0 0 1.6rem;
     line-height: 1.83;
+  }
+  span {
+    margin-right: .825rem;
   }
 }
 
@@ -97,6 +105,12 @@
     display: block;
     background: #000;
     color: #fff;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+      border: 2px solid #000;
+    }
   }
   span {
     display: none;
@@ -121,16 +135,30 @@ h6 a {
 
 @media only screen and (min-width: 576px) {
   .homepage-content > img {
-    width: 75%;
-    margin-bottom: 2rem;
+    width: 60%;
+    margin-bottom: 3rem;
   }
 
   .available-services {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
     h3 {
       text-align: center;
     }
     h6 {
-      margin: 0 0 .2rem 26%;
+      margin: 0 0 .2rem 20%;
+    }
+    div {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+
+  .description {
+    width: 80%;
+    margin: 0 auto;
+    p {
+      font-size: .75rem;
     }
   }
 
@@ -189,9 +217,6 @@ h6 a {
   .available-services {
     margin-top: 2.8rem;
     margin-bottom: 2.8rem;
-    h6 {
-      margin: 0 0 .2rem 26%;
-    }
   }
 
   .description {
@@ -201,11 +226,24 @@ h6 a {
 
   .start-repair-process {
     max-width: 600px;
+
+    h6 {
+      margin-bottom: 1.4rem;
+      width: 100%;
+    }
   }
   input, button {
     margin: 0 2%;
   }
 
+}
 
+@media only screen and (min-width: 1200px) {
+  .available-services h6 {
+      margin: 0 0 .2rem 30%;
+    }
+  .diagram {
+    margin-bottom: 3rem;
+  }
 
 }
