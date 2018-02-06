@@ -30,18 +30,18 @@
 }
 
 @media only screen and (min-width: 576px) {
-  h4 {
-    width: 60%;
-  }
-  .contact-us {
-    width: 50%;
-  }
-}
-
-@media only screen and (min-width: 576px) {
   .unsuccessful {
-    .contact {
-        padding-left: 26%;
-      }
+
+    h4 {
+      width: 80%;
     }
+
+    .contact-us {
+      width: 50%;
+    }
+
+    .contact {
+      padding-left: 26%;
+    }
+  }
 }
