@@ -4,13 +4,20 @@ import './confirmation.scss';
 
 export default class Confirmation extends Component {
 
+  constructor(){
+    super();
+    this.state = {
+
+    }
+  }
+
   componentWillMount() {
     this.props.setAppState({
       history: [...this.props.state.history, window.location.pathname]
     });
   }
   render(props) {
-
+    let imgSrc = window.innerWidth < 576 ? '../assets/continueShopping-mobile.jpg' : '../assets/continueShopping-desktop.jpg';
 
     return (
       <section className='page-container'>
@@ -24,11 +31,11 @@ export default class Confirmation extends Component {
           <div className='expect-shoes-box'>
             <h1>When to expect your shoes back:</h1>
             <div></div>
-            <p>About two weeks. We’ll send you an email once we receive your shoes, and again when they’re on their way back.</p>
+            <p>About two weeks.<br />We’ll send you an email once we receive your shoes, and again when they’re on their way back.</p>
           </div>
 
-          <a href=''>
-            <img src='../assets/continueShopping-mobile.jpg' />
+          <a href='https://www.tamaramellon.com/'>
+            <img src={imgSrc} />
           </a>
 
         </section>

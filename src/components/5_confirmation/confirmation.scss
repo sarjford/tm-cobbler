@@ -2,7 +2,7 @@
   margin: 0 auto;
   text-align: center;
 
-  p:nth-child(1) {
+  p {
     margin-bottom: 0;
   }
 
@@ -16,6 +16,13 @@
     }
   }
 }
+.confirmation-page > p:first-of-type {
+  font-style: italic;
+}
+.confirmation-page > p:last-of-type {
+  margin-bottom: 16px;
+}
+
 
 .expect-shoes-box {
   h1 {
@@ -24,7 +31,7 @@
   }
   div {
     margin: 27px auto;
-    border: solid 1px #000000;
+    border: solid .5px #000000;
     width: 20%;
   }
   padding: 40px 20px;
@@ -32,43 +39,30 @@
   box-shadow: -8px 8px 0 0 #eaeaea;
   margin: 64px 0 48px;
 }
+// image at bottom
 .confirmation-page > img {
   width: 50%;
   margin: 32px 0;
 }
 
-// .confirmation-page {
-//   .img-container {
-//     width: 100%;
-//
-//   }
-//   .img-wrapper {
-//     padding-bottom: 30%;
-//
-//   }
-//   .img-src {
-//     background:url('./continueShopping-mobile.png') no-repeat center;
-//     background-size:cover;
-//     position: absolute;
-//     top: 0; bottom: 0; left: 0; right: 0;
-//   }
-// }
-
-
-
-
 @media only screen and (min-width: 576px) {
+
   .confirmation-page {
-    width: 80%;
+    width: 100%;
   }
   .confirmation-page > img {
     width: 20%;
-
+  }
+  .confirmation-page > p:last-of-type {
+    text-align: left;
   }
   .expect-shoes-box {
-    padding: 30px;
+    h1 {
+      font-size: 1.3rem;
+    }
+    padding: 48px 24px;
     width: 60%;
-    margin: 64px auto 48px;
+    margin: 32px auto 48px;
   }
 
 }
