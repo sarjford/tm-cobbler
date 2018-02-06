@@ -17,23 +17,16 @@ export default class Progress extends Component {
   }
 
   navigateBack() {
-    this.props.setAppState({
-      page: newPage,
-    });
-    route(newUrl);
+    let history = this.props.state.history.slice();
+    route(history.slice(-2, -1)[0]);
   }
 
   exitCobbler() {
-    this.props.setAppState({
-      url: '/'
-    });
     route('/');
   }
 
   render(props) {
     let step = urls[window.location.pathname];
-
-    console.log(step)
 
     return (
       <section className="progress-bar">
