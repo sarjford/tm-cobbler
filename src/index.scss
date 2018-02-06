@@ -114,7 +114,7 @@ input, button, form {
   .page-container-home {
     margin: 0 auto;
   }
-  .page-container, .progress-bar > div {
+  .page-container, .progress-bar > div, .unsuccessful > div {
     width: 70%;
     max-width: 450px;
   }
@@ -129,7 +129,7 @@ input, button, form {
     width: 70%;
     max-width: 1000px;
   }
-  .page-container, .progress-bar > div {
+  .page-container, .progress-bar > div, .unsuccessful > div {
     max-width: 550px;
   }
 
@@ -139,7 +139,7 @@ input, button, form {
   html {
     font-size: 19px;
   }
-  .page-container, .progress-bar > div {
+  .page-container, .progress-bar > div, .unsuccessful > div {
     width: 60%;
   }
 

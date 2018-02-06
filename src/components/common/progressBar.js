@@ -2,7 +2,12 @@ import { h, Component } from 'preact';
 import { route } from 'preact-router';
 import './progress.scss';
 
-
+const urls = {
+  '/' :'0',
+  '/step_1': '1',
+  '/step_2': '2',
+  '/step_3': '3'
+}
 
 export default class Progress extends Component {
   constructor() {
@@ -12,32 +17,24 @@ export default class Progress extends Component {
   }
 
   navigateBack() {
-    let urls = {
-      0: '/',
-      1: '/step_1',
-      2: '/step_2',
-      3: '/step_3',
-    }
-
-    let newPage = this.props.state.page - 1;
-    let newUrl = urls[newPage];
-
     this.props.setAppState({
       page: newPage,
-      url: newUrl
     });
     route(newUrl);
   }
 
   exitCobbler() {
     this.props.setAppState({
-      page: 0,
       url: '/'
     });
     route('/');
   }
 
   render(props) {
+    let step = urls[window.location.pathname];
+
+    console.log(step)
+
     return (
       <section className="progress-bar">
         <div>
@@ -45,7 +42,7 @@ export default class Progress extends Component {
           <img src='../../assets/back_icon@2x.png' />
 
           </div>
-          <h3>{ props.state.page } of 3</h3>
+          <h3>{step} of 3</h3>
           <div className="nav-button exit" onClick={ this.exitCobbler }>
           <img src='../../assets/x_icon@2x.png' />
 

@@ -218,11 +218,12 @@ app.post('/order', (req, res) => {
     .set('Authorization', 'enzy9PvHnnuBJo2mHosLQQCq')
     .set('Accept', 'application/vnd.CcOps.v1, application/json')
     .set('Content-Type', 'application/json')
-    .then(function(res) {
-      return res.send(res);
+    .then(function(response) {
+      console.log(response)
+      res.send(response);
     })
     .catch((error) => {
       console.log(error)
-      return res.send(error);
+      res.send(error);
     });
 });

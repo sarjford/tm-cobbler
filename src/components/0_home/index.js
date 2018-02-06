@@ -18,11 +18,20 @@ export default class Home extends Component {
     this.updateEmail = this.updateEmail.bind(this);
   }
 
-  // componentDidMount(){
-  //   window.onpopstate = function(event) {
-  //     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-  //   };
-  // }
+
+  componentWillMount() {
+    this.props.setAppState({
+      history: [...this.props.state.history, window.location.pathname]
+    });
+  }
+
+
+  componentDidMount() {
+
+    // window.onpopstate = function(event) {
+    //   console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    // };
+  }
 
   updateEmail(e){
     this.setState({ errorClassName: '' });
@@ -50,7 +59,7 @@ export default class Home extends Component {
          this.props.setAppState({
            data: res.body,
            url: "/step_1",
-           page: 1
+           // page: 1
          });
          window.scrollTo(0, 0);
          route('/step_1');

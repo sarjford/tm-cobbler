@@ -19,6 +19,7 @@ export default class Info extends Component {
     this.createOrderObj = this.createOrderObj.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
+    this.startOver = this.startOver.bind(this);
   }
 
   componentWillMount() {
@@ -31,6 +32,10 @@ export default class Info extends Component {
       state: this.props.state.data[0].customer.province_code || '',
       zip: this.props.state.data[0].customer.zip || '',
       phone: this.props.state.data[0].customer.phone || ''
+    });
+
+    this.props.setAppState({
+      history: [...this.props.state.history, window.location.pathname]
     });
   }
 
@@ -90,35 +95,27 @@ export default class Info extends Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    // let orderObject = this.createOrderObj();
-    let orderObject = { a: 'b' }
+    let orderObject = this.createOrderObj();
+    // let orderObject = { a: 'b' }
     request.post('https://4cfb0fbc.ngrok.io/order')
       .send(orderObject)
       .set('Accept', 'application/json')
 
       .then(function(res) {
-        if (!!JSON.parse(res.body.response.text).success) {
-          console.log('success!')
+        if (JSON.parse(res.body.status) == 200) {
+          console.log('successful post to api')
+          window.scrollTo(0, 0);
+          route('/complete');
         } else {
+          console.log('unsuccessful post to api')
           this.setState({ loading: false, error: true });
         }
 
-        // if (res.body.response.text) {
-        //
-        // }
-        // console.log(res);
-        // this.props.setAppState({
-        //  url: "/complete",
-        //  page: 4
-        // });
-        // window.scrollTo(0, 0);
-        // route('/complete');
-
       }.bind(this))
       .catch(function(err) {
-        console.log(err);
-        this.setState({ loading: false, error: true });
-
+        if (err) {
+          console.log('error', err);
+        }
       }.bind(this));
   }
 
@@ -128,6 +125,10 @@ export default class Info extends Component {
     });
   }
 
+  startOver(){
+    route('/');
+  }
+
   render(props, state) {
     console.log('info state', state)
 
@@ -135,7 +136,7 @@ export default class Info extends Component {
       <section className='page-container'>
         <section className='user-info-page'>
           {this.state.loading ? <Loading /> : null }
-          {this.state.error ? <Unsuccessful /> : null }
+          {this.state.error ? <Unsuccessful startOver={this.startOver} /> : null }
 
           <h1>Let’s make sure our info for you is still correct:</h1>
 

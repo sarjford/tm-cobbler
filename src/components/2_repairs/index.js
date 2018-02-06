@@ -25,15 +25,19 @@ export default class Repairs extends Component {
     this.hideHelpPopup = this.hideHelpPopup.bind(this);
   }
 
-  // componentDidMount(){
-  //   window.onpopstate = function(event) {
-  //     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-  //   };
-  // }
-
   componentWillMount(){
+    this.props.setAppState({
+      history: [...this.props.state.history, window.location.pathname]
+    });
     this.selectedCheckboxes = new Set();
   }
+
+  componentDidMount(){
+    window.onpopstate = function(event) {
+      console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    };
+  }
+
   toggleCheckbox(label){
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
@@ -60,7 +64,7 @@ export default class Repairs extends Component {
     this.props.setAppState({
       selectedRepairs: selectedRepairsIds,
       url: "/step_3",
-			page: 3
+			// page: 3
     });
     window.scrollTo(0, 0);
 

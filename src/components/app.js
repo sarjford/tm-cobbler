@@ -18,11 +18,15 @@ export default class App extends Component {
       selectedShoeIndex: 0,
       selectedRepairs: [],
       email: '',
-      page: 0,
-      url: '/',
       data: [],
+      history: []
     };
     this.setAppState = this.setAppState.bind(this);
+  }
+
+  componentWillMount() {
+    console.log('1 componentWillMount')
+    this.setState({ history: ['/'] })
   }
 
   componentDidMount() {
@@ -30,9 +34,29 @@ export default class App extends Component {
     if (state) {
       this.setState(state);
     }
+    console.log('2 componentDidMount')
+
+    // console.log(this.state.history)
+    // this.setState({
+    //   history: [...this.state.history, window.location.pathname]
+    // })
+    // console.log(window.location.pathname)
+    // console.log(this.state.history)
+  }
+
+  shouldComponentUpdate(){
+    console.log('3 shouldComponentUpdate')
+  }
+  componentWillUpdate(){
+    console.log('4 componentWillUpdate')
+  }
+  componentDidUpdate(){
+    console.log('5 componentDidUpdate')
   }
 
   componentWillUnmount() {
+    console.log('6 componentWillUnmount')
+
     Store.saveProductList(this.state);
   }
 
@@ -40,12 +64,17 @@ export default class App extends Component {
     this.setState.bind(this)(obj);
   }
 
+
+
   render({}, { setAppState, state }) {
-    console.log('app mounted')
+    console.log('render')
+    let url = this.state.history.slice().pop();
+    console.log(url)
+    console.log(this.state.history)
+
 		return (
       <div className='app-container'>
-      {this.state.url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
-
+      {url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
         <Router>
           <Home path="/" state={ this.state } setAppState={ this.setAppState } />
           <Shoes path="/step_1" state={ this.state } setAppState={ this.setAppState } />
