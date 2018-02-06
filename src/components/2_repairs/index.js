@@ -17,7 +17,8 @@ export default class Repairs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      popupVisible: false
+      popupVisible: false,
+      checkboxError: false
     }
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
     this.selectRepairs = this.selectRepairs.bind(this);
@@ -32,13 +33,9 @@ export default class Repairs extends Component {
     this.selectedCheckboxes = new Set();
   }
 
-  componentDidMount(){
-    window.onpopstate = function(event) {
-      console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    };
-  }
-
   toggleCheckbox(label){
+    this.setState({ checkboxError: false });
+
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
     } else {
@@ -56,18 +53,24 @@ export default class Repairs extends Component {
 
   selectRepairs(e){
     e.preventDefault();
+
+    console.log(this.selectedCheckboxes.size)
+
+    if (this.selectedCheckboxes.size == 0){
+      this.setState({ checkboxError: true });
+      return;
+    }
+
     let selectedRepairsIds = [];
     for (const checkbox of this.selectedCheckboxes) {
       selectedRepairsIds.push(repairs[checkbox]);
     }
 
     this.props.setAppState({
-      selectedRepairs: selectedRepairsIds,
-      url: "/step_3",
-			// page: 3
+      selectedRepairs: selectedRepairsIds
     });
-    window.scrollTo(0, 0);
 
+    window.scrollTo(0, 0);
     route('/step_3');
   }
 
@@ -77,6 +80,9 @@ export default class Repairs extends Component {
     let checkboxes = Object.keys(repairs).map(function(label){
       return <Checkbox label={ label } handleCheckboxChange={ toggle } />
     });
+
+    let err = !!this.state.checkboxError ? 'error' : 'no-error';
+    console.log(err)
 
     return (
       <section className='page-container'>
@@ -94,7 +100,7 @@ export default class Repairs extends Component {
           <h1>What kind of love do your shoes need?</h1>
           <p>Check all that apply.</p>
 
-          <section className="checkboxes">
+          <section className={`checkboxes ${err}`}>
             { checkboxes }
           </section>
 
@@ -107,9 +113,7 @@ export default class Repairs extends Component {
             onClick={ this.selectRepairs }
             >NEXT</button>
 
-
         </section>
-
       </section>
     );
   }

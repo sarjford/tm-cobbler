@@ -23,7 +23,7 @@ export default class Checkbox extends Component {
   render(props, state) {
 
     return (
-      <div className="checkbox">
+      <div className='checkbox'>
         <div className={ state.checkedClassName }
               onClick={ this.toggleCheckboxChange } />
         <p>{ props.label }</p>

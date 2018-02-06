@@ -12,7 +12,7 @@ export default class Shoe extends Component {
 	selectShoe(){
 		this.props.setAppState({
 			selectedShoeIndex: this.props.index,
-			url: "/step_2",
+			// url: "/step_2",
 			// page: 2
 		});
 		window.scrollTo(0, 0);

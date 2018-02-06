@@ -54,6 +54,7 @@
     display: inline-block;
     margin: 0 0 0 16px;
     vertical-align: bottom;
+    line-height: 1.2;
   }
 }
 .checkbox > div {
@@ -63,6 +64,7 @@
   border: 1px solid black;
   cursor: pointer;
   display: inline-block;
+  // box-sizing: border-box;
 }
 
 .checked {
@@ -70,6 +72,13 @@
 }
 .hidden {
   display: none;
+}
+
+.checkboxes.error .checkbox > div {
+  border: 1px solid red;
+}
+.checkboxes.no-error .checkbox > div {
+  border: 1px solid black;
 }
 
 button.repair-page-next {
