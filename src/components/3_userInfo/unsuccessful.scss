@@ -1,0 +1,47 @@
+.unsuccessful {
+
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: #fff;
+  opacity: .8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h4 {
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 90%;
+  }
+
+  .contact-us {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  span {
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
+.unsuccessful > div {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 576px) {
+  h4 {
+    width: 60%;
+  }
+  .contact-us {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .unsuccessful {
+    .contact {
+        padding-left: 26%;
+      }
+    }
+}

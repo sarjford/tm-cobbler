@@ -1,0 +1,38 @@
+.progress-bar {
+
+  width: 100%;
+  background: #e6e6e6;
+  position: relative;
+
+  .nav-button, h3 {
+    display: inline-block;
+    width: 33%;
+  }
+
+  h3 {
+    text-align: center;
+    width: 100%;
+    font-family: 'Futura', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: normal;
+    font-size: .8rem;
+  }
+
+  .nav-button img {
+    width: 100%;
+    position: absolute;
+  }
+
+  .nav-button {
+    position: absolute;
+    cursor: pointer;
+  }
+  .nav-button.exit {
+    width: 18px;
+    top: 12px;
+    right: 0;
+  }
+  .nav-button.back {
+    width: 11px;
+    top: 11px;
+  }
+}

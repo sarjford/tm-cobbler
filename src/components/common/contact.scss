@@ -1,0 +1,17 @@
+.contact {
+  padding-left: 20%;
+}
+.contact:first-child {
+  margin: 0 auto 15px;
+}
+.contact:last-child {
+  margin: 0 auto 10px;
+}
+.contact img {
+  width: 30px;
+  vertical-align: bottom;
+}
+.contact a {
+  margin-left: 20px;
+  cursor: pointer;
+}
