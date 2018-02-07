@@ -5,7 +5,6 @@ import Checkbox from './checkbox';
 import Help from './helpPopup';
 import './repairs.scss';
 
-
 const repairs = {
   'Cleaning': 134,
   'Heel Tip Replacement': 297,

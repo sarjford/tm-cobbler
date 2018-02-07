@@ -3,8 +3,6 @@ import { route } from 'preact-router';
 import request from 'superagent';
 import Unsuccessful from './unsuccessful.js';
 import Loading from '../common/loading.js';
-
-
 import './userInfo.scss';
 
 

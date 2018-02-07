@@ -7,7 +7,6 @@ import Repairs from './2_repairs';
 import Info from './3_userInfo';
 import Confirmation from './5_confirmation';
 import Overview from './4_overview';
-import Store from './store.js'
 
 
 export default class App extends Component {
@@ -25,56 +24,25 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    console.log('1 componentWillMount')
-    this.setState({ history: ['/'] })
-  }
-
-  componentDidMount() {
-    let state = Store.getProductList();
-    if (state) {
-      this.setState(state);
+    // handle if user refreshes the page -- just go to home page
+    if (window.location.pathname === '/') {
+      this.setState({ history: ['/'] });
+    } else {
+      window.location.href = '/';
     }
-    console.log('2 componentDidMount')
-
-    // console.log(this.state.history)
-    // this.setState({
-    //   history: [...this.state.history, window.location.pathname]
-    // })
-    // console.log(window.location.pathname)
-    // console.log(this.state.history)
-  }
-
-  shouldComponentUpdate(){
-    console.log('3 shouldComponentUpdate')
-  }
-  componentWillUpdate(){
-    console.log('4 componentWillUpdate')
-  }
-  componentDidUpdate(){
-    console.log('5 componentDidUpdate')
-  }
-
-  componentWillUnmount() {
-    console.log('6 componentWillUnmount')
-
-    Store.saveProductList(this.state);
   }
 
   setAppState(obj) {
     this.setState.bind(this)(obj);
   }
 
-
-
   render({}, { setAppState, state }) {
-    console.log('render')
     let url = this.state.history.slice().pop();
-    console.log(url)
-    console.log(this.state.history)
 
 		return (
       <div className='app-container'>
-      {url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
+        {url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
+
         <Router>
           <Home path="/" state={ this.state } setAppState={ this.setAppState } />
           <Shoes path="/step_1" state={ this.state } setAppState={ this.setAppState } />

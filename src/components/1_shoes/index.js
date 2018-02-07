@@ -4,19 +4,12 @@ import Shoe from './shoe';
 import './shoes.scss';
 
 
-
 export default class Shoes extends Component {
 
   componentWillMount() {
     this.props.setAppState({
       history: [...this.props.state.history, window.location.pathname]
     });
-  }
-
-  componentDidMount(){
-    // window.onpopstate = function(event) {
-    //   console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    // };
   }
 
   render(props) {

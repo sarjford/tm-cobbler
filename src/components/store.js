@@ -1,11 +1,14 @@
-let o = {};
+let memory = {};
 
 let Store = {
-  saveProductList: function(state) {
-    o['products'] = state;
+  saveCurrentState: function(state) {
+    console.log('saveState')
+    memory['data'] = state;
   },
-  getProductList: function() {
-    return o['products'];
+  getSavedState: function() {
+    console.log('getState')
+
+    return memory['data'];
   }
 };
 
