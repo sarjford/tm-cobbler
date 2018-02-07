@@ -24,7 +24,7 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    // handle if user refreshes the page -- just go to home page
+    // if user refreshes the page -- just go to home page
     if (window.location.pathname === '/') {
       this.setState({ history: ['/'] });
     } else {
