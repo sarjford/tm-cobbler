@@ -23,9 +23,8 @@ const accessToken = process.env.ACCESS_TOKEN;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
-});
+app.use(express.static(__dirname +'/src/'));
+app.use(express.static(__dirname +'/build/'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +33,11 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile(__dirname + '/src/index.html');
+});
+
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
 });
 
 app.get('/shopify', (req, res) => {
