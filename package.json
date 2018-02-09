@@ -4,9 +4,10 @@
   "description": "cobbler concierge mini app on tm website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline",
-    "prestart": "webpack"
+    "dev": "webpack-dev-server --inline",
+    "prestart": "webpack",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.prod.js --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sarah Ford",
   "license": "ISC",

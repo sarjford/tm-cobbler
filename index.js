@@ -10,15 +10,18 @@ const promise = require('bluebird');
 const ajax = require('superagent');
 const bodyParser = require ('body-parser');
 
-
+const scopes = 'write_content, write_themes, write_products, read_customers, write_customers, unauthenticated_write_customers, read_orders';
 const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
-const scopes = 'write_content, write_themes, write_products, read_customers, write_customers, unauthenticated_write_customers, read_orders';
+const accessToken = process.env.ACCESS_TOKEN;
 
 const forwardingAddress = "https://4cfb0fbc.ngrok.io"; // Replace later with HTTPS Forwarding address
 const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
-const accessToken = process.env.ACCESS_TOKEN;
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT);
+if (PORT === process.env.PORT) app.use(express.static('./'))
+else app.use(express.static('./dist'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -32,12 +35,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+
+
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
-});
-
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
 });
 
 app.get('/shopify', (req, res) => {
