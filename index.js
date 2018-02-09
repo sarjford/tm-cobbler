@@ -15,13 +15,15 @@ const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
 const accessToken = process.env.ACCESS_TOKEN;
 
-const forwardingAddress = "https://4cfb0fbc.ngrok.io"; // Replace later with HTTPS Forwarding address
-const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
+const forwardingAddress = 'https://tm-cobbler.herokuapp.com/';
+const url = 'https://tm-cobbler.herokuapp.com/';
+// const forwardingAddress = "https://4cfb0fbc.ngrok.io";
+// const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT);
-if (PORT === process.env.PORT) app.use(express.static('./'))
-else app.use(express.static('./dist'));
+// if (PORT === process.env.PORT) app.use(express.static('./'))
+// else app.use(express.static('./dist'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

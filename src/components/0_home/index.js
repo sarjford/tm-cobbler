@@ -30,9 +30,9 @@ export default class Home extends Component {
   }
 
   verifyEmail(e) {
-
     e.preventDefault();
     const email = this.props.state.email;
+    let apiUrl = '';
 
     function validateEmail(email) {
       const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -48,7 +48,13 @@ export default class Home extends Component {
 
     this.setState({ errorMsg: '', errorClassName: '', loading: true });
 
-    request.get('https://4cfb0fbc.ngrok.io/user')
+    if (window.location.href.indexOf('local') > -1) {
+      apiUrl = 'https://4cfb0fbc.ngrok.io/user';
+    } else {
+      apiUrl = 'https://tm-cobbler.herokuapp.com/user';
+    }
+
+    request.get(apiUrl)
       .query({ email: email })
       .then(function(res) {
          this.props.setAppState({
