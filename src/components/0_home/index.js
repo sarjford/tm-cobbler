@@ -51,7 +51,7 @@ export default class Home extends Component {
     if (window.location.href.indexOf('local') > -1) {
       apiUrl = 'https://4cfb0fbc.ngrok.io/user';
     } else {
-      apiUrl = 'https://tm-cobbler.herokuapp.com/user';
+      apiUrl = 'http://cobbler.tamaramellon.com/user';
     }
 
     request.get(apiUrl)
