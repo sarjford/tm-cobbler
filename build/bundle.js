@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b210489dca34ed831836"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4b4c2274c835bc228a5f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -5237,9 +5237,9 @@ var Home = function (_Component) {
   }, {
     key: 'verifyEmail',
     value: function verifyEmail(e) {
-
       e.preventDefault();
       var email = this.props.state.email;
+      var apiUrl = '';
 
       function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -5255,7 +5255,13 @@ var Home = function (_Component) {
 
       this.setState({ errorMsg: '', errorClassName: '', loading: true });
 
-      _superagent2.default.get('https://4cfb0fbc.ngrok.io/user').query({ email: email }).then(function (res) {
+      if (window.location.href.indexOf('local') > -1) {
+        apiUrl = 'https://4cfb0fbc.ngrok.io/user';
+      } else {
+        apiUrl = 'https://tm-cobbler.herokuapp.com/user';
+      }
+
+      _superagent2.default.get(apiUrl).query({ email: email }).then(function (res) {
         this.props.setAppState({
           data: res.body,
           url: "/step_1"

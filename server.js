@@ -16,14 +16,12 @@ const apiSecret = process.env.SHOPIFY_API_SECRET;
 const accessToken = process.env.ACCESS_TOKEN;
 
 const forwardingAddress = 'https://tm-cobbler.herokuapp.com/';
-const url = 'https://tm-cobbler.herokuapp.com/';
+const url = 'https://tm-cobbler.herokuapp.com/shopify?shop=tamara-dev.myshopify.com';
 // const forwardingAddress = "https://4cfb0fbc.ngrok.io";
 // const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT);
-// if (PORT === process.env.PORT) app.use(express.static('./'))
-// else app.use(express.static('./dist'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -36,9 +34,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-
-
 
 
 app.get('/', (req, res) => {
@@ -137,36 +132,21 @@ app.get('/user', (req, res) => {
       if (orderData.orders.length === 0){
         return res.status(400).send('Email address exists but no orders associated with this email address.');
       } else {
-        // let lineItems = orderData.orders.map(function(order){
-        //   return order.line_items.filter(function(line_item){
-        //     return !!line_item.product_id && line_item.gift_card == false;
-        //   }).map(function(line_item){
-        //     return {
-        //       variant: line_item.variant_id,
-        //       product: line_item.product_id,
-        //       name: line_item.title,
-        //       price: line_item.price,
-        //       options: line_item.variant_title,
-        //       order: order.order_number,
-        //       customer: order.customer.default_address,
-        //       date: order.created_at,
-        //       refunds: order.refunds
-        //     }
-        //   });
-        // }).reduce(function(a,b){ return a.concat(b); });
-
         let lineItems = orderData.orders.map(function(order){
-          return order.line_items.map(function(line_item){
-              return {
-                variant: line_item.variant_id,
-                product: line_item.product_id,
-                name: line_item.title,
-                price: line_item.price,
-                options: line_item.variant_title,
-                order: order.order_number,
-                customer: order.customer.default_address,
-                date: order.created_at
-              }
+          return order.line_items.filter(function(line_item){
+            return !!line_item.product_id && line_item.gift_card == false;
+          }).map(function(line_item){
+            return {
+              variant: line_item.variant_id,
+              product: line_item.product_id,
+              name: line_item.title,
+              price: line_item.price,
+              options: line_item.variant_title,
+              order: order.order_number,
+              customer: order.customer.default_address,
+              date: order.created_at,
+              refunds: order.refunds
+            }
           });
         }).reduce(function(a,b){ return a.concat(b); });
 
@@ -178,22 +158,6 @@ app.get('/user', (req, res) => {
             const parsedData = body.map(function(item){
               return JSON.parse(item);
             });
-
-            // for (let i = 0; i < lineItems.length; i++){
-            //   parsedData[i].product.variants.forEach(function(variant){
-            //     if (lineItems[i].variant === variant.id){
-            //       lineItems[i]['imageId'] = variant.image_id;
-            //     }
-            //   });
-            // }
-            //
-            // for (let i = 0; i < lineItems.length; i++){
-            //   parsedData[i].product.images.forEach(function(image){
-            //     if (lineItems[i].imageId == image.id){
-            //       lineItems[i]['imageSrc'] = image.src;
-            //     }
-            //   });
-            // }
 
             function captureImgData(newProp, productProp, variantProp, resObjProp){
               for (let i = 0; i < lineItems.length; i++){

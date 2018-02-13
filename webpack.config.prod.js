@@ -13,7 +13,6 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-      // 'process.env.API_URL': JSON.stringify('production'),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -40,24 +39,15 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader'
       },
       {
-          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-          use: [{
-              loader: 'file-loader',
-              options: {
-                  name: '[name].[ext]',
-                  outputPath: 'fonts/'
-              }
-          }]
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }]
       },
     ],
   }
-
-  // devtool: 'source-map',
-
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'src'),
-  //   hot: true,
-  //   compress: true,
-  //   historyApiFallback: true
-  // }
 }
