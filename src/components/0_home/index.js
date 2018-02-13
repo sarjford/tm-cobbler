@@ -94,7 +94,7 @@ export default class Home extends Component {
             <span className={ state.errorClassName }>{ state.errorMsg }</span>
           </div>
 
-          <h6 className='terms'>*Terms & Conditions apply. <a>More info.</a></h6>
+          <h6 className='terms'>*Terms & Conditions apply. <a href='https://www.tamaramellon.com/pages/our-info#cobbler'>More info.</a></h6>
       </section>
 		);
 	}
