@@ -15,8 +15,8 @@ const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
 const accessToken = process.env.ACCESS_TOKEN;
 
-const forwardingAddress = 'http://cobbler.tamaramellon.com/';
-const url = 'http://cobbler.tamaramellon.com/shopify?shop=tamara-dev.myshopify.com';
+const forwardingAddress = 'https://tm-cobbler.herokuapp.com/';
+const url = 'https://tm-cobbler.herokuapp.com/shopify?shop=tamara-dev.myshopify.com';
 // const forwardingAddress = "https://4cfb0fbc.ngrok.io";
 // const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
