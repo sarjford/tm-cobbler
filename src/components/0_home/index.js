@@ -51,19 +51,19 @@ export default class Home extends Component {
     if (window.location.href.indexOf('local') > -1) {
       apiUrl = 'https://4cfb0fbc.ngrok.io/user';
     } else {
-      apiUrl = 'https://tm-cobbler.herokuapp.com/';
+      apiUrl = 'https://tm-cobbler.herokuapp.com/user';
     }
 
     request.get(apiUrl)
       .query({ email: email })
       .then(function(res) {
         console.log(res);
-         // this.props.setAppState({
-         //   data: res.body,
-         //   url: "/step_1",
-         // });
-         // window.scrollTo(0, 0);
-         // route('/step_1');
+         this.props.setAppState({
+           data: res.body,
+           url: "/step_1",
+         });
+         window.scrollTo(0, 0);
+         route('/step_1');
       }.bind(this))
       .catch(function(err) {
         if (err) {
