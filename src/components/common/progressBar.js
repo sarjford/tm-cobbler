@@ -28,6 +28,8 @@ export default class Progress extends Component {
   render(props) {
     let step = urls[window.location.pathname];
 
+    console.log(this.props.state.history)
+
     return (
       <section className="progress-bar">
         <div>

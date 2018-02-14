@@ -17,22 +17,25 @@
     font-size: .8rem;
   }
 
-  .nav-button img {
-    width: 100%;
-    position: absolute;
-  }
-
   .nav-button {
     position: absolute;
     cursor: pointer;
   }
   .nav-button.exit {
+    right: -14px;
+  }
+  .nav-button.exit img {
     width: 18px;
-    top: 12px;
-    right: 0;
+    margin: 14px;
+    float: right;
   }
   .nav-button.back {
-    width: 11px;
-    top: 11px;
+    left: -14px;
   }
+  .nav-button.back img {
+    width: 11px;
+    margin: 12px;
+    float: left;
+  }
+
 }

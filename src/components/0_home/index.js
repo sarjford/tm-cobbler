@@ -90,7 +90,7 @@ export default class Home extends Component {
             <form>
               <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onInput={this.updateEmail} />
               <button type="btn submit"
-                onClick={ this.verifyEmail }>Start Your Repair</button>
+                onClick={ this.verifyEmail }>Start Your Service</button>
             </form>
             <span className={ state.errorClassName }>{ state.errorMsg }</span>
           </div>

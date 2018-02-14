@@ -53,8 +53,6 @@ export default class Repairs extends Component {
   selectRepairs(e){
     e.preventDefault();
 
-    console.log(this.selectedCheckboxes.size)
-
     if (this.selectedCheckboxes.size == 0){
       this.setState({ checkboxError: true });
       return;
@@ -81,7 +79,6 @@ export default class Repairs extends Component {
     });
 
     let err = !!this.state.checkboxError ? 'error' : 'no-error';
-    console.log(err)
 
     return (
       <section className='page-container'>
