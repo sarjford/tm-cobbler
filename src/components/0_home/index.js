@@ -57,12 +57,13 @@ export default class Home extends Component {
     request.get(apiUrl)
       .query({ email: email })
       .then(function(res) {
-         this.props.setAppState({
-           data: res.body,
-           url: "/step_1",
-         });
-         window.scrollTo(0, 0);
-         route('/step_1');
+        console.log(res);
+         // this.props.setAppState({
+         //   data: res.body,
+         //   url: "/step_1",
+         // });
+         // window.scrollTo(0, 0);
+         // route('/step_1');
       }.bind(this))
       .catch(function(err) {
         if (err) {
