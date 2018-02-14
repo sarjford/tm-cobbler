@@ -40,6 +40,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/src/index.html');
 });
 
+app.get('/test', (req, res) => {
+  res.send(JSON.stringify(process.env));
+});
+
 app.get('/shopify', (req, res) => {
   const shop = req.query.shop;
   if (shop) {
