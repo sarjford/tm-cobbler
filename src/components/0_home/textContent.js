@@ -16,7 +16,7 @@ const Content = function(props) {
       </div>
 
       <div className='available-services'>
-        <h3>Available Services</h3>
+        <img src='../assets/available-services.png' />
         <div>
           <h6><span>•</span>Cleaning</h6>
           <h6><span>•</span>Minor scuffs</h6>

@@ -16,16 +16,14 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 
+  img {
+    width: 100%;
+    margin: 1em auto;
+    display: block;
+  }
   div {
     margin: 0 auto;
     display: block;
-  }
-
-  h3 {
-    font-style: italic;
-    font-family: "Palatino Linotype", "Book Antiqua", 'Palatino', serif;
-    font-size: 1.4rem;
-    letter-spacing: .03em;
   }
   h6 {
     margin: 0 0 0 1.6rem;
@@ -143,8 +141,8 @@ h6 a {
   .available-services {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
-    h3 {
-      text-align: center;
+    img {
+      width: 42%;
     }
     h6 {
       margin: 0 0 .2rem 20%;
