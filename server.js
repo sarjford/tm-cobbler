@@ -65,7 +65,8 @@ app.get('/user', (req, res) => {
       } else {
         let lineItems = orderData.orders.map(function(order){
           return order.line_items.filter(function(line_item){
-            return !!line_item.product_id && line_item.gift_card == false;
+            let size = line_item.variant_title.split(' / ')[1];
+            return !!line_item.product_id && line_item.gift_card == false && size !== 'OS';
           }).map(function(line_item){
             return {
               variant: line_item.variant_id,
@@ -83,7 +84,7 @@ app.get('/user', (req, res) => {
 
         return promise.map(lineItems, function(lineItem){
           return request.get(shopRequestUrl + 'products/'+ lineItem.product + '.json?fields=images,variants', { headers: shopRequestHeaders });
-        })
+        }, {concurrency: 6})
 
         .then((body) => {
             const parsedData = body.map(function(item){
@@ -110,6 +111,7 @@ app.get('/user', (req, res) => {
     })
     .catch((error) => {
       console.log(error);
+      res.send(error);
     });
 });
 
