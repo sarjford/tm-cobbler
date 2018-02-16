@@ -34,7 +34,6 @@
   }
 }
 
-
 .diagram {
   background: #f3f3f3;
   border: solid .4rem #e6e6e6;
@@ -46,11 +45,6 @@
     width: 75%;
     margin: 0 auto 1.5rem;
   }
-  div {
-    width: 75%;
-    margin: 0 auto;
-    margin-bottom: 4rem;
-  }
   img {
     width: 40%;
     display: block;
@@ -60,8 +54,17 @@
     text-align: center;
     font-weight: bold;
   }
+  span {
+    visibility: hidden;
+    display: block;
+  }
 }
-
+.diagram > div {
+  vertical-align: top;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
 
 .start-repair-process > *, button {
   margin: 0 auto;
@@ -128,10 +131,6 @@ h6 a {
   font-size: 0.75rem;
 }
 
-
-
-
-
 @media only screen and (min-width: 576px) {
   .homepage-content > img {
     width: 60%;
@@ -167,16 +166,28 @@ h6 a {
       font-size: .6em;
       margin-bottom: .875rem;
     }
-    div {
-      width: 32%;
-      display: inline-block;
-      padding: 0 5%;
-      box-sizing: border-box;
-      margin-bottom: 0;
+    img {
+      position: absolute;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: 1.5rem;
+      margin: 0;
     }
     .second img {
       width: 60%;
     }
+    div div {
+      height: 150px;
+      position: relative;
+    }
+  }
+  .diagram > div {
+    width: 32%;
+    display: inline-block;
+    padding: 0 5%;
+    box-sizing: border-box;
+    margin-bottom: 0;
   }
 
   .start-repair-process {
@@ -223,6 +234,10 @@ h6 a {
     margin: 0 auto;
   }
 
+  .diagram div div {
+    height: 160px;
+  }
+
   .start-repair-process {
     max-width: 600px;
 
@@ -243,6 +258,9 @@ h6 a {
     }
   .diagram {
     margin-bottom: 3rem;
+  }
+  .diagram div div {
+    height: 200px;
   }
 
 }
