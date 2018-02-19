@@ -7,16 +7,21 @@ export default class Shoe extends Component {
 	constructor(props) {
 		super(props);
 		this.selectShoe = this.selectShoe.bind(this);
+		this.imageLoaded = this.imageLoaded.bind(this);
 	}
 
 	selectShoe(){
 		this.props.setAppState({
 			selectedShoeIndex: this.props.index,
-			// url: "/step_2",
-			// page: 2
 		});
 		window.scrollTo(0, 0);
 		route('/step_2');
+	}
+
+	imageLoaded(){
+		this.props.setAppState({
+			imagesLoaded: this.props.appState.imagesLoaded + 1,
+		});
 	}
 
 	render(props) {
@@ -27,7 +32,7 @@ export default class Shoe extends Component {
       <div className='shoe-orders'>
 				<div>
 					<div className='img'>
-						<img src={ props.state.imageSrc } />
+						<img src={ props.state.imageSrc } onLoad={this.imageLoaded}/>
 					</div>
 
 					<div className='info'>

@@ -79,23 +79,23 @@ export default class Home extends Component {
 
 	render(props, state) {
 		return (
-        <section className='page-container-home'>
+      <section className='page-container-home'>
 
-          <Content />
+        <Content />
 
-          <div className='start-repair-process'>
-            {this.state.loading ? <Loading /> : null }
-            <h4>Here we go</h4>
-            <h6>Enter your email below to start the repair process.</h6>
-            <form>
-              <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onInput={this.updateEmail} />
-              <button type="btn submit"
-                onClick={ this.verifyEmail }>Start Your Service</button>
-            </form>
-            <span className={ state.errorClassName }>{ state.errorMsg }</span>
-          </div>
+        <div className='start-repair-process'>
+          {this.state.loading ? <Loading /> : null }
+          <h4>Here we go</h4>
+          <h6>Enter your email below to start the repair process.</h6>
+          <form>
+            <input id="userEmail" type="email" className={ state.errorClassName } value={props.state.email} onInput={this.updateEmail} />
+            <button type="btn submit"
+              onClick={ this.verifyEmail }>Start Your Service</button>
+          </form>
+          <span className={ state.errorClassName }>{ state.errorMsg }</span>
+        </div>
 
-          <h6 className='terms'>*Terms & Conditions apply. <a href='https://www.tamaramellon.com/pages/our-info#cobbler'>More info.</a></h6>
+        <h6 className='terms'>*Terms & Conditions apply. <a href='https://www.tamaramellon.com/pages/our-info#cobbler'>More info.</a></h6>
       </section>
 		);
 	}

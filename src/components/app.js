@@ -18,7 +18,8 @@ export default class App extends Component {
       selectedRepairs: [],
       email: '',
       data: [],
-      history: []
+      history: [],
+      imagesLoaded: 0
     };
     this.setAppState = this.setAppState.bind(this);
   }
@@ -40,9 +41,12 @@ export default class App extends Component {
     let url = this.state.history.slice().pop();
 
 		return (
-      <div className='app-container'>
-        {url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
+      <div className={[
+        'app-container',
+        window.location.pathname === '/step_1' && (this.state.data.length !== this.state.imagesLoaded) ? 'hidden' : ''
+        ].filter(x => !!x).join(' ')}>
 
+        {url.indexOf('step') > -1 ? <Progress className="progressBar" state={ this.state } setAppState={ this.setAppState } /> : null }
         <Router>
           <Home path="/" state={ this.state } setAppState={ this.setAppState } />
           <Shoes path="/step_1" state={ this.state } setAppState={ this.setAppState } />
