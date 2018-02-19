@@ -84,7 +84,7 @@ app.get('/user', (req, res) => {
 
         return promise.map(lineItems, function(lineItem){
           return request.get(shopRequestUrl + 'products/'+ lineItem.product + '.json?fields=images,variants', { headers: shopRequestHeaders });
-        }, {concurrency: 6})
+        }, {concurrency: 4})
 
         .then((body) => {
             const parsedData = body.map(function(item){
