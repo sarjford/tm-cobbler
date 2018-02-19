@@ -15,13 +15,16 @@ export default class Shoes extends Component {
   render(props) {
 
     let purchasedShoes = props.state.data.map(function(shoeData, i){
-      return <Shoe className="shoe" appState={ props.state } state={ shoeData } setAppState={ props.setAppState } index={ i } />
+      return <Shoe  className="shoe"
+                    appState={ props.state }
+                    state={ shoeData }
+                    setAppState={ props.setAppState }
+                    index={ i } />
     });
 
     return (
       <section className='page-container page-1-shoes'>
         <section className='page-1-shoes'>
-
           <h1>Which shoe would you like to repair?</h1>
           <p>Choose one of your shoes to repair:</p>
           { purchasedShoes }

@@ -4,13 +4,6 @@ import './confirmation.scss';
 
 export default class Confirmation extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-
-    }
-  }
-
   componentWillMount() {
     this.props.setAppState({
       history: [...this.props.state.history, window.location.pathname]
