@@ -27,12 +27,13 @@ export default class Shoe extends Component {
 	render(props) {
 		let options = props.state.options.split(' / ');
 		let details =  options[0] + ' | ' + 'Size ' + options[1];
+		let imgSrc = props.state.imageSrc ? props.state.imageSrc : '../assets/cobblerMissingShoe.jpg';
 
 		return (
       <div className='shoe-orders'>
 				<div>
 					<div className='img'>
-						<img src={ props.state.imageSrc } onLoad={this.imageLoaded}/>
+						<img src={imgSrc} onLoad={this.imageLoaded}/>
 					</div>
 
 					<div className='info'>
