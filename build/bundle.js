@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c360324271464cc523c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6a6e872c6e619e56ed63"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -5586,6 +5586,7 @@ var Shoe = function (_Component) {
 		value: function render(props) {
 			var options = props.state.options.split(' / ');
 			var details = options[0] + ' | ' + 'Size ' + options[1];
+			var imgSrc = props.state.imageSrc ? props.state.imageSrc : '../assets/cobblerMissingShoe.jpg';
 
 			return (0, _preact.h)(
 				'div',
@@ -5596,7 +5597,7 @@ var Shoe = function (_Component) {
 					(0, _preact.h)(
 						'div',
 						{ className: 'img' },
-						(0, _preact.h)('img', { src: props.state.imageSrc, onLoad: this.imageLoaded })
+						(0, _preact.h)('img', { src: imgSrc, onLoad: this.imageLoaded })
 					),
 					(0, _preact.h)(
 						'div',
