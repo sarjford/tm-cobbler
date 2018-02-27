@@ -72,11 +72,11 @@ export default class Repairs extends Component {
   }
 
   render(props, { state, toggleCheckbox, hideHelpPopup }) {
-
     let toggle = this.toggleCheckbox;
     let checkboxes = Object.keys(repairs).map(function(label){
       return <Checkbox label={ label } handleCheckboxChange={ toggle } />
     });
+    let imgSrc = props.state.data[props.state.selectedShoeIndex].imageSrc ? props.state.data[props.state.selectedShoeIndex].imageSrc : '../assets/cobblerMissingShoe.jpg';
 
     let err = !!this.state.checkboxError ? 'error' : 'no-error';
 
@@ -88,7 +88,7 @@ export default class Repairs extends Component {
           <h1>Great, let’s get these repaired:</h1>
 
           <section class="selected-shoe">
-            <img src={ props.state.data[props.state.selectedShoeIndex].imageSrc } />
+            <img src={ imgSrc } />
             <h6>{ props.state.data[props.state.selectedShoeIndex].name }</h6>
             <h5>{ props.state.data[props.state.selectedShoeIndex].options }</h5>
           </section>

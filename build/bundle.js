@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6a6e872c6e619e56ed63"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "729e3f0a9ca5f4a3dc4b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -5933,11 +5933,11 @@ var Repairs = function (_Component) {
           toggleCheckbox = _ref.toggleCheckbox,
           hideHelpPopup = _ref.hideHelpPopup;
 
-
       var toggle = this.toggleCheckbox;
       var checkboxes = Object.keys(repairs).map(function (label) {
         return (0, _preact.h)(_checkbox2.default, { label: label, handleCheckboxChange: toggle });
       });
+      var imgSrc = props.state.data[props.state.selectedShoeIndex].imageSrc ? props.state.data[props.state.selectedShoeIndex].imageSrc : '../assets/cobblerMissingShoe.jpg';
 
       var err = !!this.state.checkboxError ? 'error' : 'no-error';
 
@@ -5956,7 +5956,7 @@ var Repairs = function (_Component) {
           (0, _preact.h)(
             'section',
             { 'class': 'selected-shoe' },
-            (0, _preact.h)('img', { src: props.state.data[props.state.selectedShoeIndex].imageSrc }),
+            (0, _preact.h)('img', { src: imgSrc }),
             (0, _preact.h)(
               'h6',
               null,
