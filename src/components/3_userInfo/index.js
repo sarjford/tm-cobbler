@@ -91,6 +91,9 @@ export default class Info extends Component {
 
   submitOrder(e){
     e.preventDefault();
+    let apiUrl = '';
+    let orderObject = this.createOrderObj();
+
     this.setState({ loading: true });
 
     if (window.location.href.indexOf('local') > -1) {
@@ -99,8 +102,6 @@ export default class Info extends Component {
       apiUrl = 'https://tm-cobbler.herokuapp.com/order';
     }
 
-    let orderObject = this.createOrderObj();
-    // let orderObject = { a: 'b' }
     request.post(apiUrl)
       .send(orderObject)
       .set('Accept', 'application/json')
