@@ -93,9 +93,15 @@ export default class Info extends Component {
     e.preventDefault();
     this.setState({ loading: true });
 
+    if (window.location.href.indexOf('local') > -1) {
+      apiUrl = 'https://ebaef735.ngrok.io/order';
+    } else {
+      apiUrl = 'https://tm-cobbler.herokuapp.com/order';
+    }
+
     let orderObject = this.createOrderObj();
     // let orderObject = { a: 'b' }
-    request.post('https://4cfb0fbc.ngrok.io/order')
+    request.post(apiUrl)
       .send(orderObject)
       .set('Accept', 'application/json')
 
