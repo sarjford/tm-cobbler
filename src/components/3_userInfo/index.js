@@ -97,7 +97,7 @@ export default class Info extends Component {
     this.setState({ loading: true });
 
     if (window.location.href.indexOf('local') > -1) {
-      apiUrl = 'https://ebaef735.ngrok.io/order';
+      apiUrl = 'https://39ebbe62.ngrok.io/order';
     } else {
       apiUrl = 'https://tm-cobbler.herokuapp.com/order';
     }

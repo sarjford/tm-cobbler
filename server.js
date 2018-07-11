@@ -20,6 +20,8 @@ const url = 'https://tm-cobbler.herokuapp.com/shopify?shop=tamara-dev.myshopify.
 // const forwardingAddress = "https://4cfb0fbc.ngrok.io";
 // const url = 'https://4cfb0fbc.ngrok.io/shopify?shop=tamara-dev.myshopify.com';
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT);
 
@@ -125,6 +127,7 @@ app.get('/user', (req, res) => {
 
 app.post('/order', (req, res) => {
   let orderObject = req.body;
+  console.log(orderObject)
   ajax.post('https://orders.cobblerconcierge.com/api/partners/tm/orders')
     .send(orderObject)
     .set('Authorization', 'enzy9PvHnnuBJo2mHosLQQCq')

@@ -49,7 +49,7 @@ export default class Home extends Component {
     this.setState({ errorMsg: '', errorClassName: '', loading: true });
 
     if (window.location.href.indexOf('local') > -1) {
-      apiUrl = 'https://ebaef735.ngrok.io/user';
+      apiUrl = 'https://39ebbe62.ngrok.io/user';
     } else {
       apiUrl = 'https://tm-cobbler.herokuapp.com/user';
     }
@@ -57,7 +57,7 @@ export default class Home extends Component {
     request.get(apiUrl)
       .query({ email: email })
       .then(function(res) {
-        console.log(res);
+        console.log(res.body)
          this.props.setAppState({
            data: res.body,
            url: "/step_1",
